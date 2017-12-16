@@ -1,10 +1,10 @@
 # Site settings
 title: BY Blog
-SEOTitle: 漆黑菌的博客 | BY Blog
+SEOTitle: 漆黑菌的博客 | DarknessChaser Blog
 header-img: img/post-bg-desk.jpg
 email: qq765456149@gmail.com
 description: "人生梦想之一是和叶绿体整合，这样就可以不吃饭了。"
-keyword: "BY, BY Blog, 漆黑菌的博客, darknesschaser, java, JavaScript"
+keyword: "DarknessChaser, DarknessChaser Blog, 漆黑菌的博客, 漆黑菌, java, JavaScript"
 url: "http://darknesschaser.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/DarknessChaser/DarknessChaser.github.io.git" # you code repository
@@ -12,7 +12,7 @@ github_repo: "https://github.com/DarknessChaser/DarknessChaser.github.io.git" # 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "人生梦想之一是和叶绿体整合，这样就可以不吃饭了。"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/about-my-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
