@@ -60,11 +60,11 @@ tags:
 然后继续输入`help`命令并回车，就会出来一大堆的说明。  
 4. 理论上安装openSSL后会自动添加环境变量`OPENSSL_CONF`，我的是`C:\OpenSSL-Win64\bin\openssl.cfg`，仅供参考。
 
-#### 搭建ShadowsocksR服务端
+### 搭建ShadowsocksR服务端
 安装和配置，展开说又是一大堆，具体请上网搜索了，在这里提供下ShadowsocksR最新服务端文件下载地址：[Github项目地址](https://github.com/ToyoDAdoubi/shadowsocksr "Github项目地址")、[https://github.com/ToyoDAdoubi/shadowsocksr/archive/manyuser.zip](https://github.com/ToyoDAdoubi/shadowsocksr/archive/manyuser.zip "Github下载地址")
 > 注意：为了避免出错或不兼容，Python/OpenSSL/ShadowsocksR服务端都不要安装在 目录包含中文字符和特殊字符的文件夹中！
 
-#### 启动ShadowsocksR服务端
+### 启动ShadowsocksR服务端
 依然打开**CMD**，这是我的命令仅供参考，记得根据自己的情况做出替换。
 `C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json`  
 如果没有问题的话就会出现这样的内容了
