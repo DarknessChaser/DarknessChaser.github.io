@@ -68,16 +68,16 @@ tags:
 依然打开**CMD**，这是我的命令仅供参考，记得根据自己的情况做出替换。
 `C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json`  
 如果没有问题的话就会出现这样的内容了
-> C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json
-> loaded collections.OrderedDict
-> IPv6 support
-> INFO: loading config from D:\shadowsocksr-manyuser\shadowsocks\../shadowsocks\../user-config.json
-> 2017-02-09 18:34:29 INFO     util.py:85 loading libcrypto from D:\OpenSSL-Win32\bin\libcrypto.dll
-> 2017-02-09 18:34:29 INFO     shell.py:80 ShadowsocksR 3.0.2 2017-01-08
-> 2017-02-09 18:34:29 INFO     asyncdns.py:324 dns server: [('8.8.4.4', 53), ('8.8.8.8', 53)]
-> 2017-02-09 18:34:29 INFO     server.py:106 server start with protocol[auth_aes128_md5] password [m] method [aes-128-ctr] obfs [tls1.2_ticket_auth_compatible] obfs_param []
-> 2017-02-09 18:34:29 INFO     server.py:122 starting server at [::]:8388
-> 2017-02-09 18:34:29 INFO     server.py:142 starting server at 0.0.0.0:8388
+> C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json  
+> loaded collections.OrderedDict  
+> IPv6 support  
+> INFO: loading config from D:\shadowsocksr-manyuser\shadowsocks\../shadowsocks\../user-config.json  
+> 2017-02-09 18:34:29 INFO     util.py:85 loading libcrypto from D:\OpenSSL-Win32\bin\libcrypto.dll  
+> 2017-02-09 18:34:29 INFO     shell.py:80 ShadowsocksR 3.0.2 2017-01-08  
+> 2017-02-09 18:34:29 INFO     asyncdns.py:324 dns server: [('8.8.4.4', 53), ('8.8.8.8', 53)]  
+> 2017-02-09 18:34:29 INFO     server.py:106 server start with protocol[auth_aes128_md5] password [m] method [aes-128-ctr] obfs [tls1.2_ticket_auth_compatible] obfs_param []  
+> 2017-02-09 18:34:29 INFO     server.py:122 starting server at [::]:8388  
+> 2017-02-09 18:34:29 INFO     server.py:142 starting server at 0.0.0.0:8388  
 
 #### 大概率出现的bug
 运行报错
