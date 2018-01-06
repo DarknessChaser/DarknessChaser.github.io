@@ -88,14 +88,17 @@ tags:
 
 #### 隐藏CMD窗口
 想偷偷挂在服务器上静默运行怎么办？我来告诉你。这部分主要参考了[CSDN@wyvbboy](http://blog.csdn.net/wyvbboy/article/details/52540658 "windows 下搭建shadowsocks 服务端")的内容。  
-1. 先写个bat批处理文件,把以下内容写进去。我选择放在了C盘根目录命名为`ssrRun.bat`。  
+1. 先写个bat批处理文件,把以下内容写进去。
+> 
+@echo off  
+C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json
 
-> @echo off  
-> C:\shadowsocksr\shadowsocks\server.py -c C:\shadowsocksr\user-config.json
-
-2. 再写个vbs脚本文件,把以下内容写进去。如果和我一样需要开机自启动的话，扔到开始菜单里面的`启动`文件夹里。主意里面要对应之前bat文件的目录。
+我选择放在了C盘根目录命名为`ssrRun.bat`。  
+2. 再写个vbs脚本文件,把以下内容写进去。
 > Set ws = CreateObject("Wscript.Shell")  
-> ws.run "cmd /c C:\ssrRun.bat",vbhide
+> ws.run "cmd /c C:\ssrRun.bat",vbhide  
+
+如果和我一样需要开机自启动的话，扔到开始菜单里面的`启动`文件夹里。**注意**里面要对应之前bat文件的目录。
 
 ## 结语
 写点东西真是累，我整个配置完成大概也就用了半个多小时，写这个用了好几个小时。。。写文档也是个技术活+体力活呀。
