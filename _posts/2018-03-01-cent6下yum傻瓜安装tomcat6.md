@@ -13,7 +13,7 @@ tags:
 
 ##安装tomcat6
 ```
-yum install tomcat6 tomcat6-webapps tomcat6-admin-webapps
+yum install tomcat6
 ```
 
 ##启动tomcat6
