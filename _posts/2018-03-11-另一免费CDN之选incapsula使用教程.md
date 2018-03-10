@@ -65,12 +65,14 @@ DNS生效是需要时间的，耐心等待一下。如果没有托管成功会�
 我的宽带是中国电信，每个人的网络情况各不相同，结果仅供参考。
 
 - 延时
+
 cloudflare的延时如图可以直连美西，约为167ms可以说是很不错的速度了。
 ![cloudflare延时图](https://cl.ly/1s2q1Z0Y3d3a/download/Image%202018-03-11%20at%202.44.27%20AM.png)
 incapsula的延时如图，绕路欧洲延时约为375ms要差一些。
 ![incapsula延时图](https://cl.ly/0m2q2f240P3d/download/Image%202018-03-11%20at%202.48.16%20AM.png)
 
 - 加载网页速度
+
 通过chrome自带的性能测试工具简单测试一下打开速度，实际影响打开速度因素非常多本测试并没有太多参考价值。
 
 cloudflare的加载速度如图约1200+ms。
