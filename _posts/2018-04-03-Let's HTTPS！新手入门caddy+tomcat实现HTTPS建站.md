@@ -8,10 +8,10 @@ header-img: "img/post-bg.jpg"
 catalog: true
 tags:
     - caddy
-    - nginx
     - tomcat
     - https
     - letsencrypt
+    - nginx
 ---
 
 ## 前言
@@ -114,45 +114,51 @@ PS：caddy要实现的功能其实和nginx是类似的，可以看作一个自�
 
 1. 第一步告诉它转发信息是从443端口来的，因为我们使用HTTPS协议默认端口就是443。
 
-> <Connector port="8080" protocol="HTTP/1.1"
->                connectionTimeout="20000"
->                redirectPort="443"
->                proxyPort="443"
->                URIEncoding="UTF-8"
->                />
+```
+<Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="443"
+               proxyPort="443"
+               URIEncoding="UTF-8"
+               />
+```
 
 2. 第二步告诉它如何正确处理转发来的参数。
 
-> <Host name="localhost"  appBase="webapps"
->             unpackWARs="true" autoDeploy="true">
->       <Valve className="org.apache.catalina.valves.RemoteIpValve"
->         remoteIpHeader="x-forwarded-for"
->         remoteIpProxiesHeader="x-forwarded-by"
->         protocolHeader="x-forwarded-proto"
->             />
-> </Host>
+```
+<Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+      <Valve className="org.apache.catalina.valves.RemoteIpValve"
+        remoteIpHeader="x-forwarded-for"
+        remoteIpProxiesHeader="x-forwarded-by"
+        protocolHeader="x-forwarded-proto"
+            />
+</Host>
+```
 
 ## 结语
 按照上面的内容配置完成以后应该就能正确的把tomcat上的应用转换为HTTPS链接了，附送一个配好的caddy配置文件，用来参考。
 
-> http://你的域名:80 {
->  timeouts none
->  redir https://你的域名{url}
-> }
-> https://你的域名:443 {
->  timeouts none
->  gzip #开启流量压缩，开了不吃亏开了不上当。
->  tls 你的邮箱
->  proxy /要分流的访问目录 分流地址 {
->   websocket
->   header_upstream -Origin
->  }
->  proxy / localhost:8080 { #/后面不写东西就说明全部都分流到8080
->   header_upstream Host {host}
->   header_upstream X-Real-IP {remote}
->   header_upstream X-Forwarded-For {remote}
->   header_upstream X-Forwarded-Proto {scheme}
->   header_upstream X-Forwarded-Protocol {scheme}
->  }
-> }
+```
+http://你的域名:80 {
+ timeouts none
+ redir https://你的域名{url}
+}
+https://你的域名:443 {
+ timeouts none
+ gzip #开启流量压缩，开了不吃亏开了不上当。
+ tls 你的邮箱
+ proxy /要分流的访问目录 分流地址 {
+  websocket
+  header_upstream -Origin
+ }
+ proxy / localhost:8080 { #/后面不写东西就说明全部都分流到8080
+  header_upstream Host {host}
+  header_upstream X-Real-IP {remote}
+  header_upstream X-Forwarded-For {remote}
+  header_upstream X-Forwarded-Proto {scheme}
+  header_upstream X-Forwarded-Protocol {scheme}
+ }
+}
+```
  
