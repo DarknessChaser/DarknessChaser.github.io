@@ -14,15 +14,15 @@ tags:
     - HTTPS
 ---
 
-## 为什么需要私有网盘？
+# 为什么需要私有网盘？
 电脑不想常开挂下载怎么办？如果你正好手头有个闲置硬盘空间的云主机的话，可以在云主机上挂离线然后快速取回本地。
 
-## Caddy+AriaNG+Aria2都是干什么的
+# Caddy+AriaNG+Aria2都是干什么的
 1. Aria2算是一款比较出名的多协议、多来源下载工具，支持迅雷磁力链接、BT种子、HTTP、FTP等下载协议，但是它最大的缺点是——他是一个命令行下载工具，敲命令下载可以说是非常痛苦了。
 2. AriaNG是为了让用户可以图形化的直接在网页上面添加管理Aria2任务开发的一个WebUI。
 3. 既然是WebUI就需要一个网页容器，那么就又要用到方便快捷的web server——Caddy啦。顺路还可以方便的給网站用上HTTPS。
 
-## 安装Aria2
+# 安装Aria2
 不难看出这三件套的核心就是Aria2，所以我们先选择安装Aria2。这里使用[逗比大佬的一键安装脚本](https://doub.io/shell-jc4/#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E "逗比大佬的一键安装脚本")，帮你免除安装后配置的痛苦，不过要使用HTTPS协议还需要一点小小的手动改动。
 
 - 下载并执行一键安装脚本`aria2.sh`，后续可以通过`bash aria2.sh`来启动
@@ -86,13 +86,13 @@ tags:
      目录   : /usr/local/caddy/www/aria2/Download #默认下载文件目录
 ```
 
-## 安装并使用Caddy运行Aria2NG
+# 安装并使用Caddy运行Aria2NG
 AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译任何环境。任何浏览器都能打开，不过为了让它在我们的服务器上跑起来我们还是需要用到Caddy。
 
-### 下载AriaNG
+## 下载AriaNG
 GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https://github.com/mayswind/AriaNg/releases/latest "GitHub下载地址")下载**aria-ng-版本号.zip**后解压扔到你希望的服务器位置即可，这里推荐使用**/usr/local/caddy/www/aria2**。
 
-### 配置Caddy
+## 配置Caddy
 打开Caddy的配置文件Caddyfile，添加如下配置。
 ```
     http://你的域名:80 {
@@ -111,14 +111,14 @@ GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https:
 ```
 重新启动Caddy使得配置生效，不出所料访问你的域名就能访问AriaNG的WebUI了。
 
-### 配置AriaNG
+## 配置AriaNG
 1. 切换语言简体中文模式
 ![切换语言](https://cl.ly/0F202i35470H/download/Image%202018-04-12%20at%2011.45.33%20PM.png)
 2. 设置Aria2链接，这个其实是可以设置多个的点靠上的**+**即可添加。
 ![设置Aria2](https://cl.ly/3O0f0m1u1P2X/download/Image%202018-04-12%20at%2011.50.31%20PM.png)
 按照这个配置后刷新，不出意外的话……Aria2状态一栏会显示未连接。道理其实也很简单……因为我们的Aria2是HTTP状态啊！！！HTTPS去访问自然是访问不上的。
 
-### 配置Aria2启动HTTPS
+## 配置Aria2启动HTTPS
 继续运行逗比大佬的脚本`bash aria2.sh`，先选**6**再选**5**，启动手动配置模式。
 
 ![手动配置](https://cl.ly/470N3d3Y0s27/download/Image%202018-04-13%20at%2012.00.12%20AM.png)
@@ -134,10 +134,10 @@ GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https:
 
 PS：其实里面还有些其他的选项可以自己研究一下。
 
-## 一点优化
+# 一点优化
 这个WebUI有个很蛋疼的地方，就是并不提供文件下载的链接。也就是说只负责把文件下载到服务器上，取回和管理还要自己用服务器管理软件。这个就有点不开心了，此时就要用到之前Caddy配置的`browse`功能。如果一切目录都按照默认的来，那么下载文件的位置就在Aria2NG目录下的`Download`文件夹下，所以直接在地址栏中访问`url+/Download`就可以使用Caddy自带的文件浏览功能访问下载文件夹并下载。这样虽然文件管理还是要用服务器管理软件，但是下载是方便多了。
 
-### 自己一点小改动
+## 自己一点小改动
 输入Download也懒得输入的话，可以用我小改的一个AriaNG文件。在左下角**快捷设置**一栏中添加了一个**已下载文件**选项，可以直接访问下载文件目录。
 
 ![已下载文件选项](https://cl.ly/022I153x472B/download/Image%202018-04-13%20at%2012.20.53%20AM.png)
