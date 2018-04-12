@@ -26,11 +26,11 @@ tags:
 不难看出这三件套的核心就是Aria2，所以我们先选择安装Aria2。这里使用[逗比大佬的一键安装脚本](https://doub.io/shell-jc4/#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E "逗比大佬的一键安装脚本")，帮你免除安装后配置的痛苦，不过要使用HTTPS协议还需要一点小小的手动改动。
 
 - 下载并执行一键安装脚本`aria2.sh`，后续可以通过`bash aria2.sh`来启动
-`
+```
     wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh && chmod +x aria2.sh && bash aria2.sh
-`
+```
 - 脚本功能概览 
-`
+```
     Aria2 一键安装管理脚本 [vx.x.x]
     -- Toyo | doub.io/shell-jc4 --
      
@@ -52,9 +52,9 @@ tags:
     当前状态: 已安装 并 已启动
      
     请输入数字 [0-9]:
-`
+```
 - 操作概览
-`
+```
     启动：/etc/init.d/aria2 start
     
     停止：/etc/init.d/aria2 stop
@@ -68,16 +68,16 @@ tags:
     令牌密匙：随机生成（可以自己修改 6. 修改 配置文件）
     
     下载目录：/usr/local/caddy/www/aria2/Download
-`
+```
 - 安装完成后会随机生成密钥，记下来备用
-`
+```
     Aria2 简单配置信息：
     
      地址   : #你设备的IP地址，可以替换成你的域名
      端口   : 6800 #默认端口
      密码   : #你的随机密码
      目录   : /usr/local/caddy/www/aria2/Download #默认下载文件目录
-`
+```
 ## 安装并使用Caddy运行Aria2NG
 AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译任何环境。任何浏览器都能打开，不过为了让它在我们的服务器上跑起来我们还是需要用到Caddy。
 
@@ -86,7 +86,7 @@ GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https:
 
 ### 配置Caddy
 打开Caddy的配置文件Caddyfile，添加如下配置。
-`
+```
     http://你的域名:80 {
      timeouts none #尽量防止链接超时
      redir https://你的域名:443{url}
@@ -100,7 +100,7 @@ GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https:
       browse #暂时不好解释为什么加这个，作用是让Caddy浏览指定目录下文件
     }
 
-`
+```
 重新启动Caddy使得配置生效，不出所料访问你的域名就能访问AriaNG的WebUI了。
 
 ### 配置AriaNG
