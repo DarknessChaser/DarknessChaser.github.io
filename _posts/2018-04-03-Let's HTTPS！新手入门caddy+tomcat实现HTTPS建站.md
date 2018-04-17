@@ -48,7 +48,7 @@ tags:
 ### 为什么要用caddy呢？
 标题里就有的关键字到现在都没出来可还行，来简单的介绍一下caddy。[caddyserver官方网站](https://caddyserver.com/ "caddyserver")和[caddyserver官方文档](https://caddyserver.com/docs "caddyserver官方文档")，官方的口号是**EVERY site on HTTPS**所以我认为这个服务器最牛逼之处在于扣脚部署HTTPS前置服务器，而且还有toyo的一键扣脚脚本[doub脚本+中文快速入门](https://doub.io/jzzy-2/ "doub脚本+中文快速入门")嫌麻烦可以用下边代码一键真扣脚。
 
->wget -N --no-check-certificate https://raw.githubusercontent.com/pipesocks/install/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh uninstall
+>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
 
 用上面的脚本安装的caddy在`/usr/local/caddy`目录下，配置文件叫`Caddyfile`安装后应该没有自带需要自己创建。安装完成后就会自动注册service服务，所以可以直接用如下指令来启动，停止和重启。
 

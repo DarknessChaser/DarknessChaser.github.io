@@ -89,6 +89,10 @@ tags:
 ### 安装并使用Caddy运行Aria2NG
 AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译任何环境。任何浏览器都能打开，不过为了让它在我们的服务器上跑起来我们还是需要用到Caddy。
 
+#### 下载并安装Caddy
+依然是用到逗比大佬的一键安装脚本
+> wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
+
 #### 下载AriaNG
 GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https://github.com/mayswind/AriaNg/releases/latest "GitHub下载地址")下载**aria-ng-版本号.zip**后解压扔到你希望的服务器位置即可，这里推荐使用**/usr/local/caddy/www/aria2**。
 
