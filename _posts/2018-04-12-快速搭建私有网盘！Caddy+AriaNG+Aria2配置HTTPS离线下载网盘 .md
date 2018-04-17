@@ -26,7 +26,9 @@ tags:
 不难看出这三件套的核心就是Aria2，所以我们先选择安装Aria2。这里使用[逗比大佬的一键安装脚本](https://doub.io/shell-jc4/#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E "逗比大佬的一键安装脚本")，帮你免除安装后配置的痛苦，不过要使用HTTPS协议还需要一点小小的手动改动。
 
 - 下载并执行一键安装脚本`aria2.sh`，后续可以通过`bash aria2.sh`来启动
-```wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh && chmod +x aria2.sh && bash aria2.sh```
+```
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh && chmod +x aria2.sh && bash aria2.sh
+```
 
 - 脚本功能概览 
 
@@ -88,7 +90,9 @@ AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译
 
 #### 下载并安装Caddy
 依然是用到逗比大佬的一键安装脚本
-```wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager```
+```
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
+```
 
 #### 下载AriaNG
 GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https://github.com/mayswind/AriaNg/releases/latest "GitHub下载地址")下载**aria-ng-版本号.zip**后解压扔到你希望的服务器位置即可，这里推荐使用**/usr/local/caddy/www/aria2**。
