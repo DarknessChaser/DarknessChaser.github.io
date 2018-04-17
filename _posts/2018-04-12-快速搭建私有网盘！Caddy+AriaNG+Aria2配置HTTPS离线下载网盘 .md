@@ -27,7 +27,6 @@ tags:
 
 - 下载并执行一键安装脚本`aria2.sh`，后续可以通过`bash aria2.sh`来启动
 ```
-
     wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh && chmod +x aria2.sh && bash aria2.sh
 ```
 
@@ -92,7 +91,6 @@ AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译
 #### 下载并安装Caddy
 依然是用到逗比大佬的一键安装脚本
 ```
-
     wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh && chmod +x caddy_install.sh && bash caddy_install.sh install http.filemanager
 ```
 
