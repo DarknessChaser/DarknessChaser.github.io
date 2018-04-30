@@ -109,7 +109,7 @@ GitHub下载地址：[https://github.com/mayswind/AriaNg/releases/latest](https:
       timeouts none #尽量防止链接超时
       tls 你的邮箱
       basicauth / 用户名 密码 #给这个网页加个锁
-      gzip # 压缩文件省流量
+      gzip #压缩文件省流量
       browse #暂时不好解释为什么加这个，作用是让Caddy浏览指定目录下文件
     }
 
@@ -141,6 +141,29 @@ PS：其实里面还有些其他的选项可以自己研究一下。
 
 ### 一点优化
 这个WebUI有个很蛋疼的地方，就是并不提供文件下载的链接。也就是说只负责把文件下载到服务器上，取回和管理还要自己用服务器管理软件。这个就有点不开心了，此时就要用到之前Caddy配置的`browse`功能。如果一切目录都按照默认的来，那么下载文件的位置就在Aria2NG目录下的`Download`文件夹下，所以直接在地址栏中访问`url+/Download`就可以使用Caddy自带的文件浏览功能访问下载文件夹并下载。这样虽然文件管理还是要用服务器管理软件，但是下载是方便多了。
+
+#### 启用filemanager插件管理下载目录
+filemanager是caddy下的一个文件管理插件，如果是使用上面的一键脚本按照的话就已经集成了这个插件，没有请自行安装。[filemanager官方文档](https://caddyserver.com/docs/http.filemanager "官方文档")有详细的设置教程，我在这里提供一个自己的配置以供参考。
+```
+    http://你的域名:80 {
+     timeouts none
+     redir https://你的域名:443{url}
+    }
+    https://你的域名:443 {
+     root /usr/local/caddy/www/aria2 #放AriaNG网页文件的路径
+     timeouts none #尽量防止链接超时
+     tls 你的邮箱
+     basicauth / 用户名 密码 #给这个网页加个锁
+     gzip #压缩文件省流量
+     filemanager /Download /usr/local/caddy/www/aria2/Download { # 下载目录
+        database /usr/local/caddy/filemanager.db #指定储存配置信息文件目录
+        no_auth #不需要登陆验证
+        alternative_recaptcha #为中国国情准备的选项，我选上了
+        locale zh-cn #选择语言为简体中文
+     }
+    }
+
+```
 
 #### 自己一点小改动
 输入Download也懒得输入的话，可以用我小改的一个AriaNG文件。在左下角**快捷设置**一栏中添加了一个**已下载文件**选项，可以直接访问下载文件目录。
