@@ -37,9 +37,11 @@ service tomcat6 restart
 配置文件默认目录在`/etc/tomcat6/`下
 
 ## 本地防火墙屏蔽
-如果访问http://localhost:8080/访问不了那大多是防火墙经用了8080端口，解决方法如下：
+如果访问http://localhost:8080/访问不了那大多是防火墙经用了8080端口，解决方法如下(开放tcp和udp)：
 
 ```
 iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 8080 -j ACCEPT
+iptables -A INPUT -p udp --dport 8080 -j ACCEPT
+iptables -A OUTPUT -p udp --sport 8080 -j ACCEPT
 ```		
