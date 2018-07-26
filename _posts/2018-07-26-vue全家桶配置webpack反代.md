@@ -22,9 +22,9 @@ tags:
 ```
     proxyTable: {
           '/api/*': {
-            target: 'http://10.0.0.90:8999',
-            changeOrigin: true,
-            secure: false
+            target: 'http://10.0.0.90:8999',//反代的IP地址
+            changeOrigin: true,//改变请求头
+            secure: false//是否安全-关系到是否可以使用HTTPS协议
           }
         }
 ```
