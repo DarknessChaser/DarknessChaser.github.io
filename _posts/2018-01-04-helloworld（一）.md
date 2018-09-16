@@ -4,11 +4,11 @@ title:      "hello world（一）"
 subtitle:   
 date:       2018-01-04
 author:     "漆黑菌"
-header-img: "img/post-bg.jpg"
+header-img: "img/post-bg-talk.jpg"
 catalog: true
 tags:
     - helloworld
-    - 日常
+    - 记录生活
 ---
 
 ## 前言
