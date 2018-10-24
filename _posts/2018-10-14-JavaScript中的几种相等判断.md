@@ -16,7 +16,7 @@ tags:
 # ES6中的新数据结构Set
 Set可以说是Java中的老朋友了，去重非常好用，而且JavaScript中的Set用法和表现也很接近于Java中的set。
 
-## 新建Set添加内容至Set
+## 新建Set和添加内容至Set
 Set 函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。通过add方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的值。
 
 ```
