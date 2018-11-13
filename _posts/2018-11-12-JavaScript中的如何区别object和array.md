@@ -1,20 +1,21 @@
 ---
 layout:     post
 title:      "JavaScript中的如何区别object和array"
-subtitle:   "面试总结"
+subtitle:   ""
 date:       2018-11-12
 author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
     - JavaScript判断object和array
+    - 面试总结
 ---
 
 # JavaScript中如何区别object和array
 首先这个问题其实是开放性的，答案多种多样，目前来看是个考察水平深度的好问题。
 
 ## 实用的方法
-jquery和es5中其实是提供了isArray函数的，有就用自带，没有就自己实现。
+jQuery和es5中其实是提供了`isArray`函数的，有就用自带，没有就自己实现。
 
 jQuery实现版：相对比较复杂考虑了多种情况。
 ```
@@ -44,13 +45,13 @@ function isArray(obj){
 
 
 ## 我的骚操作
-array有一个属性length是非常特殊的。js中使用array[index]方式给数组赋值时，当index超过当前length-1时，length也会做出相应的变动，也就是说。
+`array`有一个属性`length`是非常特殊的。js中使用`array[index]`方式给数组赋值时，当`index`超过当前`length-1`时，`length`也会做出相应的变动，也就是说。
 ```
     let a = [];
     a[500] = 'a';
     console.log(a.length) // 501
 ```
-而虚假的length想做到这一点是很不容易的，于是乎就可以利用这一特性来区别array和object了。
+而虚假的`length`想做到这一点是很不容易的，于是乎就可以利用这一特性来区别`array`和`object`了。
 
 ```
     var a = [];
