@@ -113,7 +113,7 @@ jQuery中的extend方法基本的就是按照这个思路实现的，但是没�
     var o3 = deepClone(o1);
     console.log(o3 === o1); // => false
     console.log(o3.obj === o1.obj); // => false
-    console.log(o2.func === o1.func); // => true
+    console.log(o3.func === o1.func); // => true
 ```      
 
 还有一种实现深拷贝的方式是利用`JSON对象`中的`parse`和`stringify`，JOSN对象中的stringify可以把一个js对象序列化为一个JSON字符串，parse可以把JSON字符串反序列化为一个js对象，通过这两个方法，也可以实现对象的深复制。
