@@ -12,7 +12,6 @@ tags:
     - swiper插件
 ---
 
-
 ## 需求背景
 8月初接到了产品侧的一个需求，希望埋点能够提供活动的曝光情况，正好就想到了`IntersectionObserver`这个新API。
 
@@ -26,7 +25,6 @@ tags:
 W3C的polyfill[https://github.com/w3c/IntersectionObserver/tree/master/polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill "IntersectionObserver Polyfill")
 
 MDN链接可以自行搜索
-
 
 ## 简介
 虽然`IntersectionObserver`在caniuse上显示的支持情况并不太好（尤其是iOS到iOS12才支持），但是W3C给出的polyfill兼容性非常好（根据GitHub说明为IE7+），实际上兼容性已经不是问题了。具体到曝光的需求上，需要注意的是。
