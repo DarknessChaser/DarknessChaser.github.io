@@ -17,7 +17,6 @@ tags:
 1. 任务中心中，跳转第三方页面完成任务后，因为没有一个机制通知前端已经在第三方页面完成任务，导致任务完成状态无法更新。
 2. 领券中心中，现有的预热倒计时需利用前端计时器，当页面被切换到后台或者手机锁屏时计时器会暂停，导致虽然领券时间已经到了但是前端页面还在倒计时。
 
-
 ## 参考文章
 阮一峰老师的文章入门[http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html](http://www.ruanyifeng.com/blog/2018/10/page_visibility_api.html "Page Visibility API 教程")。
 
