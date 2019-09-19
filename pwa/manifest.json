@@ -1,19 +1,24 @@
 {
   "name": "DarknessChaser Blog",
   "short_name": "漆黑菌博客",
-  "description": "人生梦想之一是和叶绿体整合，这样就可以不吃饭了。",
-  "icons": [{
-    "src": "icons/128.png",
-    "sizes": "128x128",
-    "type": "image/png"
-  }, {
-    "src": "icons/512.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
+  "description": "漆黑菌主要记录代码和偶尔记录生活的地方",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "icons/128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "background_color": "#fff",
   "theme_color": "#000",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "categories": ["blog"]
 }
