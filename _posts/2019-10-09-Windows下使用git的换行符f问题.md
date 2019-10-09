@@ -15,7 +15,7 @@ tags:
 ---
 
 ## 简介
-Git系统本来是运行在Unix上的，所以默认存储的的换行符为LF，但是Windows的换行符是CRLF。在Windows上git有个自动转换的功能在提交的时候转换为LF，检出的时候转换为CRLF，然而在中文环境下有bug要关掉。
+Git系统本来是运行在Unix上的，所以默认存储的的换行符为LF，但是Windows的换行符是CRLF。在Windows上git有个自动转换的功能在提交的时候转换为LF，检出的时候转换为CRLF.然而在中文环境下有bug检出的时候会LF转CRLF，但是提交的时候不会转换为LF，还是不要开比较好。
 
 ## 相关配置
 #### AutoCRLF
@@ -44,6 +44,6 @@ git config --global core.safecrlf warn
     #提交时转换为LF，检出时不转换
     git config --global core.autocrlf input
 
-    #拒绝提交包含混合换行符的文件
-    git config --global core.safecrlf true
+    #提交包含混合换行符的文件时给出警告
+    git config --global core.safecrlf warn
 ```
