@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Windows下使用git的换行符f问题"
+title:      "Windows下使用git的换行符问题"
 subtitle:   ""
 date:       2019-10-09
 author:     "漆黑菌"
