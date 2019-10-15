@@ -25,7 +25,7 @@ tags:
             target: 'http://10.0.0.90:8999',//反代的IP地址
             pathRewrite: {
                 '^/api': ''
-            }，//把/api目录反代到/根目录下
+            },//把/api目录反代到/根目录下
             changeOrigin: true,//改变请求头
             secure: false//是否安全-关系到是否可以使用HTTPS协议
           }
