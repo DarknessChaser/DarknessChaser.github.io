@@ -28,7 +28,11 @@ tags:
             },//把/api目录反代到/根目录下
             changeOrigin: true,//改变请求头
             secure: false//是否安全-关系到是否可以使用HTTPS协议
-          }
+          },
+          '/socket.io': {
+            target: 'http://172.16.115.2',
+            ws: true,//为socket.io开启ws转发
+          },
         }
 ```
 
