@@ -83,6 +83,7 @@ props: {
 3. 在替代在替代`looseEqual`和`looseIndexOf`时（详情请见上篇[探索vue checkbox v-model绑定数组语法糖的原理](/2020/02/06/探索vue-checkbox-v-model绑定数组语法糖的原理/ "探索vue checkbox v-model绑定数组语法糖的原理")），一开始选择了lodash的`isEqual`和`findIndex`。这里产生了一个误会以为`findIndex`方法会使用类似deepEqual的方法比较数组和第二个参数，然而实际上第二个是要传入一个“比较方法”，具体可以看文档。需要通过传入`isEqual`才能得到正确的index。虽然后来同事建议不要引入不必要的第三方依赖，直接改回`looseIndexOf`实现了。
 4. 组件的结构如下，在使用的时候本来以为可以用`v-text`把内容直接渲染到`slot`中，然而实际上会发生全部组件内容被覆盖的情况。一开始很意外，在实验+查阅文档后发现。要正确使用slot必须采用{{ }}，`v-text`的特性就是会干掉全部textContent。
 > 更新元素的 textContent。如果要更新部分的 textContent ，需要使用 {{ Mustache }} 插值
+
 ```
   <label :class="wrapClasses">
     <span :class="checkboxClasses">
