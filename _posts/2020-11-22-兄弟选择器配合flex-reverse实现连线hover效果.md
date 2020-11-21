@@ -21,4 +21,4 @@ tags:
 2. 看上去的第二行实际上的第一行hover时，左半边看上去空空的元素也会触发兄弟元素hover样式，通过父元素设置`pointer-events: none;`，子元素设置`pointer-events: auto;`来规避。
 
 # 疗效
-[兄弟选择器配合flex-reverse实现连线hover效果](https://darknesschaser.github.io/my-front-end-test/grid-test/index.html "grid布局dome")
+[兄弟选择器配合flex-reverse实现连线hover效果](https://darknesschaser.github.io/my-front-end-test/css-test-hover/index.html "兄弟选择器配合flex-reverse实现连线hover效果")
