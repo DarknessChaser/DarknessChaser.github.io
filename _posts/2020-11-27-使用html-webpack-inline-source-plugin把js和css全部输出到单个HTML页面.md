@@ -102,6 +102,9 @@ module.exports = {
 # 总结
 1. 自己体感vue-cli会循环pages选项，生成多组单独的HtmlWebpackPlugin配置，所以修改的时候也要多处修改。vue cli文档中其实也提到了，但是要真的get并且成功修改并不是那么简单的。
 2. 根据上一个推论，html-webpack-inline-source-plugin插件要用的配置inlineSource其实要写在pages里。
-3. 强烈建议构建个包含全部pageName的数组，方便合并同样的配置项和批量删除preload和prefetch。
-4. 关闭单独打包css和js分片，减少不必要的麻烦。
-5. 多使用vue inspect指令查看生成的webpack设置。
+3. 异步加载的模块是不参与inline-source的，毕竟都inline了还搞什么异步加载资源（webpack异步加载资源本质是jsonp）
+4. inline-source把资源导入HTML的同时并不会删除已经生成的资源，一开始还奇怪为什么js目录还在。
+5. preload会在head中预加载js和css资源，导致inline-source插件导入资源两次，要手动删除。
+6. 强烈建议构建个包含全部pageName的数组，方便合并同样的配置项和批量删除preload和prefetch。
+7. 关闭单独打包css和js分片，减少不必要的麻烦。
+8. 多使用vue inspect指令查看生成的webpack设置。
