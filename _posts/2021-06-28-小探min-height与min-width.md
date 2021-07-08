@@ -32,3 +32,6 @@ For min-width/min-height, specifies an automatic minimum size. Unless otherwise 
 
 ## 原因
 详情见参考文档2，当min-height为auto时，实际上最小高度是一个类似最小内容高度的值，所以会撑大`aspect-ratio`设置带来的height。但是手动设置为0时，就没有这个限制了，表现就为根据`aspect-ratio`计算出的height了。
+
+## 验证
+[https://codepen.io/chriscoyier/pen/YzyoodW](https://codepen.io/chriscoyier/pen/YzyoodW) 把里面的俩DIV外面包一个flex的div，表现就一致了。
