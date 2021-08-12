@@ -215,7 +215,17 @@ docker buildx use 你想要的名字
 ```
 
 #### 也许更高效的方式
-如果有原生arm机器的话，buildx似乎可以直接添加一个arm节点来构建，速度会快一些（毕竟少了模拟器层）。但是目前并没看懂这到底是个啥玩意，以后找机会再填坑吧。可以参考[https://medium.com/nttlabs/buildx-multiarch-2c6c2df00ca2](https://medium.com/nttlabs/buildx-multiarch-2c6c2df00ca2)中的**Option 3: Remote mode (easy, fast, but needs an extra machine)**
+如果有原生arm机器的话，buildx似乎可以直接添加一个arm节点来构建，速度会快一些（毕竟少了模拟器层）。可以参考[https://medium.com/nttlabs/buildx-multiarch-2c6c2df00ca2](https://medium.com/nttlabs/buildx-multiarch-2c6c2df00ca2)中的**Option 3: Remote mode (easy, fast, but needs an extra machine)**
+
+注意使用`docker -H ssh://username@host`访问远程docker时，要使用公私钥模式登录，而且建议先ssh登录过去保证已信任远程机器。顺路推荐工具`ssh-copy-id`快速配置公钥访问。没有的话可以使用`ssh-keygen`快速创建。
+
+创建新builder并新增远程节点
+
+```
+$ docker buildx create --name 你想要的名字 --use
+$ docker buildx create --name 你想要的名字 \
+  --append ssh://me@my-arm-instance
+```
 
 ## 构建
 构建指令可以参考上面的文件，前端dockerfile中依赖的docker比较少，注意选择支持所需架构的镜像，各种镜像推荐一手`*-alpine`版本，据说可以有效减少镜像尺寸。构建指令记得加`--push`不然本地似乎不会保存。各种操作指令可以参考官方的文档[https://docs.docker.com/engine/reference/commandline/buildx_build/](https://docs.docker.com/engine/reference/commandline/buildx_build/)
