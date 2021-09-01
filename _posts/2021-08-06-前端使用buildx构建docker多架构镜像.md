@@ -22,7 +22,7 @@ docker buildx官方文档[https://docs.docker.com/buildx/working-with-buildx/](h
 
 docker buildx 命令官方文档[https://docs.docker.com/engine/reference/commandline/buildx/](https://docs.docker.com/engine/reference/commandline/buildx/ 'Docker Buildx')。
 
-使用 Docker Buildx 构建多种系统架构镜像[https://teddysun.com/581.html](https://teddysun.com/581.html '使用 Docker Buildx 构建多种系统架构镜像').
+使用 Docker Buildx 构建多种系统架构镜像[https://teddysun.com/581.html](https://teddysun.com/581.html '使用 Docker Buildx 构建多种系统架构镜像')。
 
 ## 产物
 Makefile.var
