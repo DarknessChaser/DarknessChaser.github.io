@@ -41,7 +41,7 @@ tags:
 #### 指定淘宝源安装
 
 **注意** 
-1. yarn和npm不一样，npm设置registry会覆盖lock文件中的依赖下载来源，yarn@1.22.10则相反，会按照lock文件中的下载地址安装。
+1. yarn和npm不一样，npm设置registry会覆盖lock文件中的依赖下载来源，yarn@1.22.10则相反，会按照lock文件中的下载地址安装。所以建议改变registry后把本地依赖删了重新装一下。（而且理论上构建的时候就不用配置registry了？）
 2. 阿里源有两个地址`registry.nlark.com`和`registry.npm.taobao.org`，前者在网上检索可以发现cnpm会用。所以设置阿里源后出现第一个地址的依赖也很正常。
 
 npm
