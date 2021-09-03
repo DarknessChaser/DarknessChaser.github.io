@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "科学使用node和nvm"
+title:      "科学使用npm、yarn、node和nvm"
 subtitle:   ""
 date:       2019-02-05
 author:     "漆黑菌"
@@ -15,8 +15,8 @@ tags:
 ---
 
 # 问题
-**npm**和**nvm**指令有时会遇到些不可抗力问题。
-> nvm是解决node更新版本后老项目无法启动的node版本管理工具
+**npm**、**yarn**和**nvm**指令有时会遇到些不可抗力问题。
+> nvm是解决node版本不兼容导致项目无法启动问题的node版本管理工具
 
 # 方法
 #### 给npm设置代理
@@ -39,6 +39,8 @@ tags:
 ```
 
 #### 指定淘宝源安装
+npm
+
 ```
     一次性
 
@@ -51,6 +53,20 @@ tags:
     取消
 
     npm config delete registry
+
+```
+
+yarn
+
+**注意：** yarn和npm不一样，npm设置registry会覆盖lock文件中的依赖下载来源，yarn@1.22.10则相反，会按照lock文件中的下载地址安装。
+``` 
+    长期
+
+    yarn config set registry https://registry.npm.taobao.org/
+
+    取消
+
+    yarn config delete registry
 
 ```
 
