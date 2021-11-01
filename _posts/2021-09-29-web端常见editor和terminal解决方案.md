@@ -11,7 +11,7 @@ tags:
     - monaco-editor
     - CodeMirror
     - CodeMirror6
-    - @novnc/novnc
+    - novnc
     - guacamole
     - xterm
 ---
@@ -49,17 +49,17 @@ npm的ace-builds@1.4.12  357.5kB 97.9kB
 
 # terminal
 ## @novnc/novnc
-自己在用的云服务器厂商在用，支持颜色，输入没啥问题，但是不支持粘贴和选中。
+自己在用的云服务器厂商在用，支持颜色，输入没啥问题，新版支持复制粘贴和选中。不支持插件。
 185.4kB MINIFIED
 50.7kB MINIFIED + GZIPPED
 协议MPL 2.0对商用还是比较友好的。实际找了个页面进去只加载了150kb左右的资源。
 
 ## guacamole
-aws的终端，颜色输入没问题，粘贴和复制要手动右键，滚动选中直接快捷键有问题需要右键。整个终端加载需要2.5mb。
+aws的终端，颜色输入没问题，粘贴和复制要手动右键，滚动选中直接快捷键有问题需要右键，无搜索功能。整个终端加载需要2.5mb。
 63.9kB MINIFIED
 18.7kB MINIFIED + GZIPPED
 
 ## xterm
-阿里云和腾讯云都用的这款，算业界优选了吧。颜色输入复制粘贴啥的都没问题，滚动选中是ok的。唯一缺点稍微有点大。
+阿里云和腾讯云都用的这款，算业界优选了吧。颜色输入复制粘贴啥的都没问题，滚动选中是ok的，有插件可以支持搜索功能。唯一缺点稍微有点大。
 327.2kB MINIFIED
 71.2kB MINIFIED + GZIPPED
