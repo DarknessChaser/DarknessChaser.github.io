@@ -42,18 +42,19 @@ tags:
 
 **注意** 
 1. yarn和npm不一样，npm设置registry会覆盖lock文件中的依赖下载来源，yarn@1.22.10则相反，会按照lock文件中的下载地址安装。所以建议改变registry后把本地依赖删了重新装一下。（而且理论上构建的时候就不用配置registry了？）
-2. 阿里源有两个地址`registry.nlark.com`和`registry.npm.taobao.org`，前者在网上检索可以发现cnpm会用。所以设置阿里源后出现第一个地址的依赖也很正常。
+2. 阿里源有两个地址`registry.nlark.com`和`registry.npmmirror.com`，前者在网上检索可以发现cnpm会用。所以设置阿里源后出现第一个地址的依赖也很正常。
+3. 阿里源曾经用过`registry.npm.taobao.org`在2021年11月之后宣布要迁到`registry.npmmirror.com`。
 
 npm
 
 ```
     一次性
 
-    npm install --registry=https://registry.npm.taobao.org
+    npm install --registry=https://registry.npmmirror.com
     
     长期
 
-    npm config set registry https://registry.npm.taobao.org
+    npm config set registry https://registry.npmmirror.com
 
     取消
 
@@ -65,12 +66,19 @@ yarn
 ``` 
     长期
 
-    yarn config set registry https://registry.npm.taobao.org/
+    yarn config set registry https://registry.npmmirror.com/
 
     取消
 
     yarn config delete registry
 
+```
+
+#### 使用nrm管理源
+```
+npm install -g nrm
+nrm ls
+nrm use taobao
 ```
 
 #### nvm指定淘宝源
