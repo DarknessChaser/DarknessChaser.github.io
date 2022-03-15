@@ -80,7 +80,7 @@ npm
     一次性
 
     npm install --registry=https://registry.npmmirror.com
-    
+
     长期
 
     npm config set registry https://registry.npmmirror.com
@@ -89,6 +89,9 @@ npm
 
     npm config delete registry
 
+	指定单次从官方源安装
+
+	npm i @daocloud-proto/ghippo --registry=https://registry.npmjs.org
 ```
 
 yarn
