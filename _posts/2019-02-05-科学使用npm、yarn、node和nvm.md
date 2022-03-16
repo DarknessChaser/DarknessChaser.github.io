@@ -22,23 +22,24 @@ tags:
 #### 给npm设置代理
 
 ```
-    启动
+启动
 
-    $ npm config set proxy http://server:port
-    $ npm config set https-proxy http://server:port
-    
-    
-    取消
-    
-    npm config delete proxy
-    npm config delete https-proxy
+$ npm config set proxy http://server:port
+$ npm config set https-proxy http://server:port
 
-    查看配置项
-    
-    npm config list
+
+取消
+
+npm config delete proxy
+npm config delete https-proxy
+
+查看配置项
+
+npm config list
 ```
 
 #### 在wsl2中设置代理
+
 1. 据网上说，wsl2中子系统是无法通过localhost直接访问的。因此需要知道wsl2的ip地址。执行以下命令即可。
     ```bash
     cat /etc/resolv.conf
@@ -67,6 +68,7 @@ tags:
    curl -vv www.google.com
    curl -i www.google.com
    ```
+
 #### 指定淘宝源安装
 
 **注意** 
@@ -77,32 +79,32 @@ tags:
 npm
 
 ```
-    一次性
+一次性
 
-    npm install --registry=https://registry.npmmirror.com
+npm install --registry=https://registry.npmmirror.com
 
-    长期
+长期
 
-    npm config set registry https://registry.npmmirror.com
+npm config set registry https://registry.npmmirror.com
 
-    取消
+取消
 
-    npm config delete registry
+npm config delete registry
 
-	指定单次从官方源安装
+指定单次从官方源安装
 
-	npm i @daocloud-proto/ghippo --registry=https://registry.npmjs.org
+npm i @daocloud-proto/ghippo --registry=https://registry.npmjs.org
 ```
 
 yarn
 ``` 
-    长期
+长期
 
-    yarn config set registry https://registry.npmmirror.com/
+yarn config set registry https://registry.npmmirror.com/
 
-    取消
+取消
 
-    yarn config delete registry
+yarn config delete registry
 
 ```
 
