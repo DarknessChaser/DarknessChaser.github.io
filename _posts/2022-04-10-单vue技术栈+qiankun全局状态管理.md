@@ -21,7 +21,8 @@ tags:
 # vue3+qiankun+pinia全局状态管理
 基于他人项目改造的，有用的部分是main + huge-spa-1 + huge-spa-1-sub。项目链接：[https://github.com/DarknessChaser/qiankun-global-vue3-test](https://github.com/DarknessChaser/qiankun-global-vue3-test)
 
-# 为什么vue2中可以直接重复observer vue3就不行了
+# vue2和vue3 数据响应机制的区别
+为什么vue2中可以直接重复observer vue3就不行了？
 ## demo链接
 在线访问链接：
 1. vue2[https://darknesschaser.github.io/my-front-end-test/vue-global-test/vue2.html](https://darknesschaser.github.io/my-front-end-test/vue-global-test/vue2.html)
