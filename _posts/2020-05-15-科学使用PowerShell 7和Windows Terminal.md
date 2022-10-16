@@ -76,3 +76,59 @@ PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x�
         }
     ],
 ```
+
+# 一份Windows Terminal配置
+注意使用的时候和原先对比一下并注意注释，比如profiles.list不同的机器就不一样
+```JSON
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        }
+    ],
+    "alwaysShowNotificationIcon": true,
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    // "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "firstWindowPreference": "persistedWindowLayout",
+    "focusFollowMouse": true,
+    "launchMode": "default",
+    "profiles": {
+        "defaults": {
+            // "colorScheme": "DimmedMonokai"
+        },
+        "list": [
+            // 不同机器应该不一样，注意要和defaultProfile配合
+        ]
+    },
+    "schemes": [
+        // 想用DimmedMonokai请看上面，默认的应该也不用覆盖
+    ],
+    "showTabsInTitlebar": true,
+    "tabSwitcherMode": "inOrder",
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useExisting"
+}
+```
