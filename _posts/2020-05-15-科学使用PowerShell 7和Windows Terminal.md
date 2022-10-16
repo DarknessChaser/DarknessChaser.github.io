@@ -44,14 +44,14 @@ PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x�
 
 我vs code用的主题是**DimmedMonokai**，Windows Terminal也打算用这个，配置结果如下（仅供参考）
 
-```
+```JSON
         "defaults": {
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "DimmedMonokai"
         },
 ```
 
-```
+```JSON
     "schemes": [
         {
             "name": "DimmedMonokai",
