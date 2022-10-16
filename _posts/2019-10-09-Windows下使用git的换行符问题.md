@@ -9,9 +9,8 @@ catalog:    true
 tags:
     - Git
     - Windows
-    - AutoCRLF
-    - SafeCRLF
     - 换行符
+    - 科学使用
 ---
 
 ## 简介
