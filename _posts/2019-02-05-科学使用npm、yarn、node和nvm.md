@@ -15,13 +15,15 @@ tags:
 ---
 
 # 问题
+
 **npm**、**yarn**和**nvm**指令有时会遇到些不可抗力问题。
 > nvm是解决node版本不兼容导致项目无法启动问题的node版本管理工具
 
 # 方法
+
 #### 给npm设置代理
 
-```
+```sh
 启动
 
 $ npm config set proxy http://server:port
@@ -41,6 +43,7 @@ npm config list
 #### 在wsl2中设置代理
 
 1. 据网上说，wsl2中子系统是无法通过localhost直接访问的。因此需要知道wsl2的ip地址。执行以下命令即可。
+
     ```bash
     cat /etc/resolv.conf
 
@@ -52,11 +55,13 @@ npm config list
     ```
 
 2. 查看window环境下代理软件的端口，并设置。注意重启终端后理论上会失效，需要重新输入。
+
     ```bash
     export https_proxy=http://172.24.224.1:10809 http_proxy=http://172.24.224.1:10809 all_proxy=http://172.24.224.1:10809
     ```
 
 3. 设置git代理
+
     ```
     git config --global proxy.https http://$windows_host:10809
     ```
@@ -64,6 +69,7 @@ npm config list
 4. 记得在代理软件中设置允许局域网访问，并且在window 防火墙中放行（直接设置中搜防火墙就可以了）
 
 5. 访问google验证是否设置成功
+
    ```
    curl -vv www.google.com
    curl -i www.google.com
@@ -71,14 +77,15 @@ npm config list
 
 #### 指定淘宝源安装
 
-**注意** 
+**注意**
+
 1. yarn和npm不一样，npm设置registry会覆盖lock文件中的依赖下载来源，yarn@1.22.10则相反，会按照lock文件中的下载地址安装。所以建议改变registry后把本地依赖删了重新装一下。（而且理论上构建的时候就不用配置registry了？）
 2. 阿里源有两个地址`registry.nlark.com`和`registry.npmmirror.com`，前者在网上检索可以发现cnpm会用。所以设置阿里源后出现第一个地址的依赖也很正常。
 3. 阿里源曾经用过`registry.npm.taobao.org`在2021年11月之后宣布要迁到`registry.npmmirror.com`。
 
 npm
 
-```
+```sh
 一次性
 
 npm install --registry=https://registry.npmmirror.com
@@ -97,7 +104,8 @@ npm i @daocloud-proto/ghippo --registry=https://registry.npmjs.org
 ```
 
 yarn
-``` 
+
+```sh
 长期
 
 yarn config set registry https://registry.npmmirror.com/
@@ -109,20 +117,24 @@ yarn config delete registry
 ```
 
 #### 使用nrm管理源
-```
+
+```sh
 npm install -g nrm
 nrm ls
 nrm use taobao
 ```
 
 #### nvm指定淘宝源
-```
-nvm node_mirror https://npm.taobao.org/mirrors/node/
-nvm npm_mirror https://npm.taobao.org/mirrors/npm/
+
+```sh
+nvm node_mirror https://npmmirror.com/mirrors/node/
+nvm npm_mirror https://npmmirror.com/mirrors/npm/
 ```
 
 #### nvm设置代理
-```
+
+```sh
 nvm proxy localhost:10809
 ```
+
 > 经测试（当前版本1.1.7）只支持HTTP代理
