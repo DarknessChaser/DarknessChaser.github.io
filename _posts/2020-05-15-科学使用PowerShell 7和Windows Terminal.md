@@ -17,15 +17,18 @@ tags:
 # 安装Windows Terminal和PowerShell
 
 先贴官方文档
+
 1. [Windows Terminal](https://github.com/microsoft/terminal "microsoft/terminal: The new Windows Terminal and the original Windows console host, all in the same place!")
 2. [PowerShell在GitHub](https://github.com/PowerShell/PowerShell "PowerShell/PowerShell: PowerShell for every system!")
 3. [PowerShell在Microsoft Docs](https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7 "在 Windows 上安装 PowerShell")
 
 推荐的安装方式
+
 1. Windows Terminal通过Microsoft Store [https://aka.ms/windowsterminal](https://aka.ms/windowsterminal)
 2. PowerShell通过GitHub releases [https://github.com/PowerShell/PowerShell/releases](https://github.com/PowerShell/PowerShell/releases)
 
 # 更新PowerShell
+
 PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x版本这个更新是跟着Windows更新走的，而且可以和我们下载的PowerShell 6+共存，所以此处的更新PowerShell特指更新PowerShell 6+。
 
 经过实验大版本不同的PowerShell之间也是可以共存的，比如我之前安装的是PowerShell 7-preview，安装PowerShell 7后两者会共存。所以当我手动卸载PowerShell 7-preview。
@@ -36,6 +39,7 @@ PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x�
 2. win键+R运行regedit，在注册表编辑器中搜索要删除的版本如`PowerShell7-previewx64`删除之（怕翻车的话建议备份一下注册表
 
 # 配置Windows Terminal主题
+
 主要知乎参考文章[https://zhuanlan.zhihu.com/p/139189289](https://zhuanlan.zhihu.com/p/139189289 "Windows10 安装最新版 PowerShell 及 Windows Terminal 并美化")
 
 现在版本的PowerShell设置还没有GUI，打开就是一个JSON文件。文章中推荐了一个repo `mbadolato/iTerm2-Color-Schemes`中有现成的Windows Terminal可用的主题配色[https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/windowsterminal](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/windowsterminal "Windows Terminal配色")
@@ -78,7 +82,9 @@ PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x�
 ```
 
 # 一份Windows Terminal配置
+
 注意使用的时候和原先对比一下并注意注释，比如profiles.list不同的机器就不一样
+
 ```JSON
 {
     "$help": "https://aka.ms/terminal-documentation",
@@ -128,7 +134,11 @@ PowerShell其实可以分成两个版本，一个Windows自带的PowerShell 5.x�
     ],
     "showTabsInTitlebar": true,
     "tabSwitcherMode": "inOrder",
-    "useAcrylicInTabRow": true,
+    "useAcrylicInTabRow": false,
     "windowingBehavior": "useExisting"
 }
 ```
+
+# 创建一个administrator权限的power shell
+
+直接复制一份power shell配置后，在配置文件中启用**以管理员身份运行此配置文件**，可以顺手改个名称如**Admin PowerShell**方便区分。
