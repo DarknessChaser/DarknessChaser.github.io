@@ -28,6 +28,6 @@ tags:
 
 ## 代码位置
 
-[vnode = createComponent(tag as any, data, context, children)](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-element.ts#L129)
+[createElement](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-element.ts#L129)
 createElement
-[Ctor = baseCtor.extend(Ctor as typeof Component)](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-component.ts#L116)
+[createComponent](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-component.ts#L116)
