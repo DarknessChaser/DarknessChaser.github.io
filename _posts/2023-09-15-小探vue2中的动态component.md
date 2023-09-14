@@ -1,33 +1,22 @@
 ---
 layout:     post
-title:      "小探vue2中的动态component"
+title:      "写给自己看的postcss-preset-env配置攻略"
 subtitle:   ""
-date:       2023-09-15
+date:       2023-05-04
 author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
-    - vue动态component
+    - postcss-preset-env
 ---
 
-## 缘起
+## 默认安装
 
-当前vue2项目中存在jsx和template混用的情况。发现可以通过
+安装postcss-preset-env，并添加配置文件。按照文档来就可以。
 
-```html
-<component
-    :is="{ render: $slots.default }"
-/>
-```
+## 启用有副作用插件
 
-向component is中传递一个有render属性的render函数在template中渲染jsx生成的组件。
+本次想要降级has选择器，这是一个有副作用的插件，默认不会开启，并且需要手动映入js。
 
-## 总结
-
-当向is中传入object时，vue2会调用vue.extend创建一个vue component，所以render就可以用了。此时和一个有render选项的组件是一样的。所以理论上也可以拥有自己的data，props之类的……
-
-## 代码位置
-
-[createElement](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-element.ts#L129)
-createElement
-[createComponent](https://github.com/vuejs/vue/blob/9dd006b481b4299462e044741bac0861c0b1775c/src/core/vdom/create-component.ts#L116)
+1. 在配置文件中直接写好'css-has-pseudo': {}，
+2. 在需要降级的地方引入import cssHasPseudo from 'css-has-pseudo/browser';并传入cssHasPseudo(document);直接传document算是偷懒，理论上应该只在需要的地方传入。
