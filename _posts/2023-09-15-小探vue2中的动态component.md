@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "写给自己看的postcss-preset-env配置攻略"
+title:      "小探vue2中的动态component"
 subtitle:   ""
-date:       2023-05-04
+date:       2023-09-15
 author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
-    - postcss-preset-env
+    - vue动态component
 ---
 
 ## 默认安装
