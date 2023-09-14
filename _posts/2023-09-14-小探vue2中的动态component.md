@@ -1,12 +1,13 @@
 ---
 layout:     post
-title:      "test"
+title:      "小探vue2中的动态组件"
 subtitle:   ""
-date:       2023-09-15
+date:       2023-09-14
 author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
+    - vue动态组件
     - vue2
 ---
 
