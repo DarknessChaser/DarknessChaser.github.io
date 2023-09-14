@@ -7,7 +7,7 @@ author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
-    - vue 动态component
+    - vue动态component
 ---
 
 ## 缘起
