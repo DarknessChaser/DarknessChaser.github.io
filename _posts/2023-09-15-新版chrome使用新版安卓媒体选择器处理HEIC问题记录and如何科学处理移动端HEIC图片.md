@@ -21,4 +21,5 @@ tags:
 
 1. ios和macos Safari，设置accept为jpg+png，实际可以选择heic，并且浏览器接收的图片会正确的转换成accept中的格式。
 2. 大部分传统chrome设置accept为jpg+png，默认heic不能选中。但是有上述问题的chrome可以选中但是转换错误，疑似chrome or 安卓bug
-3. 设置accept为jpg+png+heic时，表现比较混乱，用的时候再总结比较好。
+3. 设置accept为jpg+png+heic时，safari可以选择，但是不会转换。
+4. 设置accept为jpg+png+heic时，无问题的chrome会正常选择并不转换直接上传heic。有问题的chrome可以选中并且依然错误转换。
