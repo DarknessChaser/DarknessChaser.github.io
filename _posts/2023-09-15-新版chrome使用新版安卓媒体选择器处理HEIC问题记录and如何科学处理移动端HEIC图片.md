@@ -36,12 +36,12 @@ tags:
 
 1. macOS 不能选择heic
 2. android 可以选heic，heic会原样上传
-3. Windows10 不能选择heic
+3. Windows10&11 不能选择heic
 
 ###### Firefox
 
 1. macOS 不能选择heic
-2. Windows10 不能选择heic
+2. Windows10&11 不能选择heic
 
 #### 设置可接受文件类型为jpeg+png
 
@@ -54,12 +54,12 @@ tags:
 
 1. macOS 不能选择heic
 2. android 不能选择heic
-3. Windows10 不能选择heic
+3. Windows10&11 不能选择heic
 
 ###### Firefox
 
 1. macOS 不能选择heic
-2. Windows10 不能选择heic
+2. Windows10&11 不能选择heic
 
 #### 设置可接受文件类型为heic
 
@@ -72,16 +72,16 @@ tags:
 
 1. macOS 可以选heic，heic会原样上传
 2. android 可以选heic，heic会原样上传
-3. Windows10 可以选heic，heic会原样上传
+3. Windows10&11 可以选heic，heic会原样上传
 
 ###### Firefox
 
 1. macOS 可以选heic，heic会原样上传
-2. Windows10 可以选heic，heic会原样上传
+2. Windows10&11 可以选heic，heic会原样上传
 
 ## 浏览器选择图片行为总结
 
 1. iOS上的Safari，无论是否设置接受heic，目前都可以选择heic图片，都会转换成通用格式。因此可以考虑设置成只接受通用格式。
 2. macOS上的Safari和android上的Chrome，*包含heic，选择按照设置进行，并且上传时不会进行转换。因此可以考虑设置成只接受通用格式。
-3. macOS和Windows10上的Chrome和Firefox，*不包含heic，选择按照设置进行，并且上传时不会进行转换。因此可以考虑设置成只接受通用格式。
+3. macOS和Windows10&11上的Chrome和Firefox，*不包含heic，选择按照设置进行，并且上传时不会进行转换。因此可以考虑设置成只接受通用格式。
 4. 实操中安卓chrome和Windows平台，文件选择器可以绕开accept。建议上传时拦一层。
