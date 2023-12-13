@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "小探vue2中为什么使用transition过渡元素时，元素不能show和key同时存在.md"
+title:      "小探vue2中为什么使用transition过渡元素时，元素不能show和key同时存在"
 subtitle:   ""
 date:       2023-12-01
 author:     "漆黑菌"
