@@ -44,7 +44,7 @@ include选项要单独配置了从create-vue抄来的env.d.ts和eslint的配置�
 
 vue2.x项目要用`@vue/babel-preset-jsx`，参考文档设置时注意不要与其它插件冲突重复注入render fn。
 
-在现有项目中同事为了兼容vue2.6时代往protype上挂库的写法，在new Vue的时候会把vue实例存起来，然后通过`webpack.ProvidePlugin`插件把全局替换的h指向存起来的vue实例。让.tsx 和 .vue文件都能使用rende fn。
+在现有项目中同事为了兼容vue2.6时代往protype上挂库的写法，在new Vue的时候会把vue实例存起来，然后通过`webpack.ProvidePlugin`插件把全局替换的h指向存起来的vue实例。让.tsx 和 .vue文件都能使用render fn。
 
 ```ts
 new webpack.ProvidePlugin({
@@ -61,7 +61,7 @@ export function h(...args) {
 
 安装相关依赖，最重要的是vue的eslint解析器`eslint-plugin-vue`和eslint增强插件`@rushstack/eslint-patch"`。主要配置可以直接从create-vue的2.7项目中抄。用了ts可以考虑用对应的eslint配置，比较基本的是`@vue/eslint-config-typescript`，也可以直接使用`@vue/eslint-config-airbnb-with-typescript`。
 
-配置extends规则时，注意vue要用`plugin:vue/essential`系列规则。因为要用jsx和tsx参考`@vue/eslint-config-airbnb-with-typescript`文档要配置单独的    允许js和允许jsx规则。在单独的.js，.jsx文件中写jsx会lint error不支持的文件后缀
+配置extends规则时，注意vue2.x要用`plugin:vue/essential`系列规则，不能使用vue3的。因为要用jsx和tsx参考`@vue/eslint-config-airbnb-with-typescript`文档要配置单独的允许js和允许jsx规则。在单独的.js，.jsx文件中写jsx会lint error不支持的文件后缀
 
 ## 开发注意事项
 
