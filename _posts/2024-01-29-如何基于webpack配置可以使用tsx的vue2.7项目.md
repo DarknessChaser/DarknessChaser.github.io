@@ -62,3 +62,9 @@ export function h(...args) {
 安装相关依赖，最重要的是vue的eslint解析器`eslint-plugin-vue`和eslint增强插件`@rushstack/eslint-patch"`。主要配置可以直接从create-vue的2.7项目中抄。用了ts可以考虑用对应的eslint配置，比较基本的是`@vue/eslint-config-typescript`，也可以直接使用`@vue/eslint-config-airbnb-with-typescript`。
 
 配置extends规则时，注意vue要用`plugin:vue/essential`系列规则。因为要用jsx和tsx参考`@vue/eslint-config-airbnb-with-typescript`文档要配置单独的    允许js和允许jsx规则。在单独的.js，.jsx文件中写jsx会lint error不支持的文件后缀
+
+## 开发注意事项
+
+1. vue2.7中对tsx组件的使用和vue3不同，并不能直接使用`<component :is="tsx" />`或者`<Tsx />`而是需要包裹一下写成`<component :is="defineComponent({ render: () => tsx })" />`。vue2.7中似乎并没提供内置组件component的类型信息，webstorm会把类型回落到vue3的，通过defineComponent包裹后可获取一致的ts体验。
+2. 如果在script中使用tsx，需要显示指定lang=tsx
+3. 如果想使用return render形式的setup，则不能使用setup语法糖。或者通过[https://vue-macros.sxzz.moe/macros/define-render.html](https://vue-macros.sxzz.moe/macros/define-render.html)
