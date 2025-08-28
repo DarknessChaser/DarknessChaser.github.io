@@ -19,9 +19,9 @@ tags:
 
 ## 总结
 经过测试发现，透传 props events slots 和正确设置 type 是可以的，但是需要注意以下几点：
-- vue2.7 中的动态组件不支持 is 直接传入 h 函数。并且vue3 中的 slots 对应的是 vue2.7的 scopedSlots。其实用 template 循环 slot 的老办法比较好
+- vue2.7 中的动态组件不支持 is 直接传入 h 函数。加上 vue2.x 中传递 slot/scopedSlots 其实比较麻烦（vue3 中 slots 在 vue2.x 中对应的其实是 scopedSlots），反而用 template 循环 slot 的老办法比较好
 - 对 events 的处理 vue2.7 和 vue3 有所不同
-- 导出方法比较困难。视频中利用 ref 可以传入一个 function 然后把组件实例通过 defineExpose 挂到当前上下文的方式来让新组件继承。 vue3 中的 defineExpose 会挂在 instance.exposed 上，vue2.7 是直接放在 instance 上的。vue2.7 比较难以确定哪些是真正想要暴露的属性。
+- 导出方法比较困难。视频中利用 ref 可以传入一个 function 然后把组件实例通过 defineExpose 挂到当前上下文的方式来让新组件继承。 vue3 中的 defineExpose 会挂在 instance.exposed 上，vue2.7 是直接放在 instance 上的，导致 vue2.7 比较难以确定哪些是真正想要暴露的属性。
 - 如果不是 setup 写的老 vue 组件可以用 extends 继承试一下，能正常拿到属性（但是this 指向会变，比如 this.$refs会有问题）。用 setup 的就歇逼了，可以考虑用个 ref 暴露一下，也就用不到强行 as defineExpose 提供正确类型提示了
 
 ## vue 中的 expose
