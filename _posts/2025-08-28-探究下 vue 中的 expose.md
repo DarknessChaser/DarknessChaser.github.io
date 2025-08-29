@@ -31,4 +31,4 @@ vue composition-api 见[expose: (exposed?: Record<string, any>) => void](https:/
 
 vue2.7 见[expose](https://github.com/vuejs/vue/blob/13f4e7dc03e2caed900ac70ff8b8fe58dda45663/src/v3/apiSetup.ts#L116-L120) 直接往上下文上挂
 
-vue3 见[instance.exposed = exposed || {}](https://github.com/vuejs/core/blob/24fccb4ee4139d41df0e395bce96ce7fbb6a50a9/packages/runtime-core/src/component.ts#L1149)
+vue3 见[instance.exposed = exposed](https://github.com/vuejs/core/blob/24fccb4ee4139d41df0e395bce96ce7fbb6a50a9/packages/runtime-core/src/component.ts#L1149)
