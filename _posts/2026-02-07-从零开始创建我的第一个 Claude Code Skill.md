@@ -1,10 +1,10 @@
 ---
 layout: post
-title: '从零开始创建我的第一个 Claude Code Skill'
-subtitle: ''
+title: “从零开始创建我的第一个 Claude Code Skill”
+subtitle: “”
 date: 2026-02-07
-author: '漆黑菌'
-header-img: 'img/post-bg.jpg'
+author: “漆黑菌”
+header-img: “img/post-bg.jpg”
 catalog: true
 tags:
   - Claude Code
