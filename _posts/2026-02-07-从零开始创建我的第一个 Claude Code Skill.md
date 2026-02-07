@@ -1,14 +1,14 @@
 ---
-layout:     post
-title:      "从零开始创建我的第一个 Claude Code Skill"
-subtitle:   "一行代码没手写，全程用 Claude Code 开发 Claude Code 的扩展——一次有趣的"套娃"体验。"
-date:       2026-02-07
-author:     "漆黑菌"
-header-img: "img/post-bg.jpg"
+layout: post
+title: '从零开始创建我的第一个 Claude Code Skill'
+subtitle: ''
+date: 2026-02-07
+author: '漆黑菌'
+header-img: 'img/post-bg.jpg'
 catalog: true
 tags:
-    - Claude Code
-    - Skill
+  - Claude Code
+  - Skill
 ---
 
 ## 起因：我到底给 Anthropic 送了多少钱？
