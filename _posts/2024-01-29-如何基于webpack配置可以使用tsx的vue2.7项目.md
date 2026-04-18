@@ -7,11 +7,9 @@ author:     "漆黑菌"
 header-img: "img/post-bg.jpg"
 catalog: true
 tags:
-    - vue $slots
-    - vue $scopedSlots
-    - vue2.6
     - vue2.7
-    - vue3
+    - vue tsx
+    - webpack
 ---
 
 ## 引入ts支持
