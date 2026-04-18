@@ -60,6 +60,8 @@ https://github.com/user/repo/blob/abc123/src/auth.ts#L67-L72
 // 对应的代码内容
 ````
 
+````
+
 这个格式在 Cursor 中可以直接点击跳转到对应文件和行号。
 
 ### 2.4 Plugin → Skill 格式转换
