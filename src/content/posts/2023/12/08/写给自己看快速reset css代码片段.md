@@ -1,0 +1,48 @@
+---
+title: "写给自己看快速reset css代码片段"
+published: 2023-12-08
+image: "/img/post-bg.jpg"
+tags: ["reset css", "代码片段"]
+---
+## button
+
+```css
+.base-button {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-text-fill-color: currentcolor; // iOS 12以下文字显示会因为all: unset不能正确显示为color
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  a {
+    text-decoration: none; // button下的a有下划线会很怪
+  }
+
+  * {
+    -webkit-text-fill-color: currentcolor; // 兼容子元素
+  }
+}
+```
+
+## input number
+
+```css
+.base-input {
+    all: unset;
+    box-sizing: border-box;
+    // 用于干掉浏览器中 input number 上下加减数字的辅助按钮 start
+    appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+    // end
+
+    -webkit-text-fill-color: currentcolor; // 同button类似的原因
+}
+```

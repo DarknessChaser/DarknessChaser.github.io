@@ -1,0 +1,689 @@
+---
+title: "记一次类 ChatGPT 的网页模块开发"
+published: 2025-08-11
+image: "/img/post-bg.jpg"
+tags: ["ChatGPT", "SSE", "流式渲染"]
+---
+## 记一次类 ChatGPT 的网页模块开发
+这次做的是一个“部分依赖 LLM 的类 ChatGPT 网页”。大部分内容还是传统接口提供，小部分走LLM，但是在页面表现上要有AI感。
+
+大致工作内容
+1. 流式文字输出
+2. 依赖长时间接口内容“可中断、可恢复”
+3. 使用了SSE，同时准备好降级到轮询。
+4. 在成本控制上做了些许优化。
+
+## 消息模型：按组件拼接，并且可以阻塞等待
+- 背景：类似chat界面，各种信息的组合理论上比较灵活。在产品认知中，“像 ChatGPT 一样一段一段吐字，不要一次性出完”才是“类 ChatGPT”的正确打开方式。
+- 做法：使用了动态组件，并且封装了基础的message，用于提供messageId，区分是system侧还是user侧等公共基础逻辑。每一条消息可以是一个组件实例（含 props 和 emits）或者 Render 函数，复杂功能推荐用组件实例，提示语等小功能用Render更灵活。必要时返回一个可等待的 promise（比如打字机结束），消息流就能自然“等一等、再往下走”。Markdown 维护一个buff类似物，定时塞字，然后让Markdown 渲染器重新渲染。
+
+#### 流传输策略：SSE 优先，失败降级到轮询
+- 选择：优先用“流式”传输（SSE），失败或环境不稳时自动降级到轮询。
+- 触发点：SSE 重试次数超过阈值，或建立连接失败时，直接切换到轮询。
+- 数据对齐：SSE 和轮询的字段尽量保持一致，任何时刻都能“断—>换接口—>继续传”。
+
+#### 为什么优先使用SSE
+下面是Gemini的回答。
+| 特性 | 服务器发送事件 (SSE) | 长轮询 (Long Polling) |
+| :--- | :--- | :--- |
+| **通信模型** | **单向推送 (服务器 -> 客户端)** | **伪推送 (客户端拉取)** |
+| **连接效率** | **高**：一次TCP连接可用于多次数据传输，减少了重复建立连接的开销。 | **较低**：每次数据传输后都需要关闭旧连接并建立新连接，带来了额外的网络延迟和服务器开销。 |
+| **实时性** | **更高**：数据一旦在服务器端准备就绪，就能几乎无延迟地被推送至客户端。 | **相对较低**：在一次请求响应周期结束后到下一次请求发起前，存在一个微小的延迟窗口。 |
+| **资源消耗** | **客户端/服务器端资源消耗较低**：维持一个长连接比频繁建立和关闭连接更为高效。 | **客户端/服务器端资源消耗较高**：频繁的HTTP请求和响应头会占用更多带宽和服务器计算资源。 |
+| **实现复杂度** | **前端实现简单**：浏览器原生提供`EventSource` API，代码简洁，且支持自动重连。 | **实现相对复杂**：需要手动管理请求的发送、接收、超时和错误处理，逻辑更繁琐。 |
+| **浏览器兼容性** | **良好**：除了一些非常古老的浏览器（如IE）外，所有现代浏览器都提供原生支持。 | **极佳**：基于传统的HTTP请求，兼容所有浏览器。 |
+| **功能限制** | **单向通信**：只能从服务器向客户端发送数据。客户端向服务器发送信息需要通过独立的HTTP请求（如POST）。 | **双向通信（非原生）**：虽然本质是客户端请求，但可以通过请求体向服务器发送数据。 |
+
+不过因为实操中没用到原生`EventSource`，所以并没有实现更简单。
+
+#### 为什么自实现“类 SSE”（基于 axios）而不是原生 EventSource
+- 现状：项目里已有 axios 基建（拦截器、鉴权、重试、baseURL、代理、超时、统一错误处理等），EventSource 难以复用这些能力。
+- 实现过程中遇到的现实问题：
+  - EventSource 标准只支持 GET 请求。但是网关默认的GET参数序列化方式比较神奇，传递复杂参数痛苦，而且GET请求不支持传递很长的参数。
+  - 网关对 header 有要求，不在白名单里配置较麻烦。默认的`Last-Event-ID`想要传递给服务端需要更改多个配置，自定义 `Last-Event-ID` 的 header 名称可以减少配置成本。
+- 取舍：在 axios 的 onDownloadProgress 上复刻 SSE 解析与重连，更容易“沿用已有基建”，减少一套并行体系的维护成本。
+- 风险：
+  - 自己维护解析器/重连策略，需要单测（可参考sse.js的测试用例）。
+  - 行为要尽量对齐原生 EventSource。
+- 结论：统一到 axios 体系能降低后续维护成本，代价是我们要对“流式解析/重连/资源释放”负责到底。
+
+
+#### 状态机设计（前端视角）
+- 状态集合：`Ready（初始态） → Pending（等待LLM响应） → Loading（LLM传输中） → Success（LLM传输完成）`；用户中断：`Stop`；错误态：`Error`、`SystemError`。
+- 迁移规则（简化）：
+  - start/create → `Pending`。
+  - 收到 `index = 0` → `Pending`；`index > 0` → `Loading`；`index = -1` → `Success`。
+  - 用户手动终止 → `Stop`（UI 立即响应，再补发取消）。
+  - 普通错误（网络抖动等）→ `Error`（可重试、可降级）。
+  - 系统错误（任务失败/取消等不可恢复）→ `SystemError`（不再自动重试）。
+- 设计意图：把“可重试的错误”和“重试无意义的错误”拆开，避免无意义消耗，且用户操作的中断语义独立于错误语义。
+
+#### 后端约定
+- 完成信号：采用 `index = -1` 表示“最后一跳已下发完成”。直接断开连接的话，前端无法区分“后端主动结束”还是“网络问题”。约定是：后端在下发 `index = -1` 的同时直接关闭；前端在收到后也会主动 close（但不保证一定传回后端，影响不大）。
+- 事件类型：后端通过 `event` 区分不同事件类型（参考后端状态机文档），前端按类型决定渲染/状态迁移。
+- 断点续传：要求后端支持 `lastEventId` 风格的断点续传。
+- Redis 缓存时效：极端情况下，缓存 5 分钟还没传完会报错；可以接受，正常量级下 5 分钟足够。
+- 命中缓存与请求约定：
+  - 请求不带 `job_id`：视为“全新请求”，允许命中缓存（直出已缓存分段）。
+  - 请求带 `job_id`：强制从 Redis 继续分段，确保序与幂等。
+- 取消：前端需显式“断开 SSE 或停止轮询”，并用“取消参数”通知后端任务取消；对“跨用户可复用缓存”的接口，取消是“假取消”（不影响缓存回放）；其它任务则返回 `{ index: -1, job_status: 取消 }`。
+- 前端本地存储：需保留每段的 `index`，重连/降级时可按序拼接与去重。
+
+#### 降级到轮询：为什么与怎么做
+- 为什么：目标运行环境里缺乏对 SSE 的历史验证与压测，需准备保底方案。
+- 如何降级：
+  - 轮询接口字段与 SSE 尽量一致；是否命中缓存、断开/取消等语义保持相同，做到幂等。理论上任意状态下可断开，再用另一条链路无缝续上。（不过实现上没必要轮询切SSE）
+  - 命中缓存时，第 n 跳返回后，下一跳的 `index` 仍是 n（对齐 SSE 事件序列）。
+  - 第 n 跳获取成功后，约 2 秒再发起 n+1 请求（避免打爆后端与代理）。
+
+#### LLM 成本优化（当前做法）
+- 结果缓存：与后端一起在“可跨用户复用、且不含敏感信息”的解释上做缓存命中（降低重复推理成本）。
+- 取消释放：前端“手动终止”会通知后端释放资源，减少无意义的推理占用。
+- 传输效率优化：先用 prompt 换 token 缩小请求体，若直接带 prompt，可能一次要传5k+ 到 20k +，但服务端一跳只回几十字节，传输效率极差。换到的token只要几十字节。
+
+## Markdown 渲染：也许能做得更好？增量更新与 CJK 友好
+- 现状：渲染较为粗糙，流式到达的新文案会触发较大的重排；在 CJK 场景下，强调语法与标点边界不友好（例如 `**文字。**` 在部分解析器里不会被视为强调）。
+- 增量更新路线：
+  - 为每段落/片段维护 token（或 `index`），只对“新增片段”做渲染，避免整段重排。
+  - 流程：后端分段下发 `index` 与文本 → 前端缓存 `index -> text` → 节流（50–100ms）合并“新增 index” → 仅对新片段做 Markdown→HTML 解析并 append → 错误/重连按 `index` 去重与补齐。
+- CJK 友好（强调边界）改造：
+  - 问题根因：多数解析器的“可夹持边界”规则以西文空格/标点为主，`**文字。**` 会因紧邻句号被判定为不闭合。
+  - 方案 A（推荐，零侵入）：预处理文本，把“强调+标点”拆开，等价为 `**文字**。`。
+    ```ts
+    function normalizeCjkEmphasis(src: string) {
+      // 把 **内容**紧跟CJK/西文标点 的写法改为 **内容** 标点
+      return src.replace(/\*\*([^\*]+?)\*\*([，。！？；：,.!?;:])/g, '**$1**$2');
+    }
+    ```
+  - 方案 B：在强调内外自动插入零宽空格，兼容性较好但要注意复制粘贴体验。
+
+## 动图尺寸优化格式选择：WebP 与 APNG
+- 背景与选择：WebP（有损/无损、可动图）与 APNG（无损、支持 alpha）在同等视觉质量下体积显著小于 GIF。
+- iOS 兼容要点：
+  - 目前来看iOS 16之前的 iOS/Safari 对“动图 WebP”的支持/稳定性不一致，会出现丢失部分帧信息。APNG 在 iOS 上长期表现更稳。
+  - 策略：优先 WebP，iOS 或不支持场景回退 APNG/PNG；关键位保留静态首帧兜底。
+
+## 一点经验
+- 流式优先但“随时可降级”，配合状态机把“终止/错误/成功”分清，体验和稳定性都更好。
+- 让前后端协议天然支持“断点续传”和“无缝切链路”，能显著降低线上不确定性带来的复杂度。
+- 能 token 化的就 token 化，既省带宽，也便于做缓存与复用。
+- Markdown渲染如果用marked，它的兼容性并不好，记得处理好降级。
+- 在线上跑了一段时间后发现，sse 还是比较稳定的。只有大概 0.8%的请求会用到重试，轮训的使用率是 0%……
+
+
+## 补充实现
+```ts
+
+import axios, {
+  type AxiosRequestConfig,
+  type CancelTokenSource,
+  type AxiosResponse,
+  type AxiosError,
+} from 'axios';
+
+import { axios as axiosInstance } from '@/lib/axios';
+
+// 基础事件类型定义
+export interface SSEEventBase {
+  type: string;
+  target: SimpleAxiosSSE;
+  data?: string;
+  lastEventId?: string | null;
+  retry?: number | null;
+}
+
+export interface SSEOpenEvent extends SSEEventBase {
+  type: 'open';
+}
+
+export interface SSEMessageEvent extends SSEEventBase {
+  type: 'message';
+  data: string;
+}
+
+export interface SSEErrorEvent extends SSEEventBase {
+  type: 'error';
+  error: Error;
+  message: string;
+}
+
+export interface SSECloseEvent extends SSEEventBase {
+  type: 'close';
+}
+
+// 联合类型
+export type SSEEvent = SSEOpenEvent | SSEMessageEvent | SSEErrorEvent | SSECloseEvent;
+
+// 事件监听器类型
+export type SSEEventListener = (event: SSEEvent) => void;
+export type SSEOpenEventListener = (event: SSEOpenEvent) => void;
+export type SSEMessageEventListener = (event: SSEMessageEvent) => void;
+export type SSEErrorEventListener = (event: SSEErrorEvent) => void;
+export type SSECloseEventListener = (event: SSECloseEvent) => void;
+
+// 配置选项接口
+export interface SimpleAxiosSSEOptions
+  extends Omit<AxiosRequestConfig, 'url' | 'responseType' | 'onDownloadProgress' | 'method'> {
+  // 只支持 GET 和 POST 方法
+  method?: 'GET' | 'POST';
+  autoConnect?: boolean;
+  // 重连相关选项
+  autoReconnect?: boolean;
+  reconnectDelay?: number;
+  maxRetries?: number;
+  useLastEventId?: boolean;
+
+  // 自定义 lastEventId 的 header 名称
+  lastEventIdHeaderName?: string;
+}
+
+// 连接状态枚举
+export enum ReadyState {
+  CONNECTING = 0,
+  OPEN = 1,
+  CLOSED = 2,
+}
+
+const DefaultLastEventIdHeaderName = 'Last-Event-ID';
+
+/**
+ * 基于 Axios onDownloadProgress 的简单 SSE 实现
+ * 提供类似原生 EventSource 的 API
+ */
+export class SimpleAxiosSSE {
+  // 静态常量
+  static readonly CONNECTING = ReadyState.CONNECTING;
+  static readonly OPEN = ReadyState.OPEN;
+  static readonly CLOSED = ReadyState.CLOSED;
+
+  // 基本属性
+  public readonly url: string;
+  private readonly options: AxiosRequestConfig;
+
+  // 事件监听器
+  private listeners: Record<string, SSEEventListener[]> = {};
+
+  // 连接状态
+  public readyState: ReadyState = ReadyState.CONNECTING;
+
+  // 数据缓存和处理
+  private buffer = '';
+  private lastProcessedIndex = 0;
+
+  // Axios 请求取消器
+  private cancelSource: CancelTokenSource | null = null;
+
+  // 重连相关属性
+  private autoReconnect: boolean;
+  private reconnectDelay: number;
+  private maxRetries: number;
+  private useLastEventId: boolean;
+  private retryCount = 0;
+  private reconnectTimer: NodeJS.Timeout | null = null;
+  private lastEventId: string | null = null;
+  private serverRetryDelay: number | null = null;
+  private manualClose = false; // 标记是否为手动关闭
+
+  private lastEventIdHeaderName: string = DefaultLastEventIdHeaderName;
+
+  /**
+   * 获取当前重试次数
+   */
+  getRetryCount(): number {
+    return this.retryCount;
+  }
+
+  /**
+   * 获取最后的事件ID
+   */
+  getLastEventId(): string | null {
+    return this.lastEventId;
+  }
+
+  /**
+   * 手动设置最后的事件ID
+   */
+  setLastEventId(eventId: string | null): void {
+    this.lastEventId = eventId;
+  }
+
+  // 是否已关闭
+  private get closed() {
+    return this.readyState === ReadyState.CLOSED;
+  }
+
+  // 事件处理器
+  public onmessage: SSEMessageEventListener | null = null;
+  public onopen: SSEOpenEventListener | null = null;
+  public onerror: SSEErrorEventListener | null = null;
+  public onclose: SSECloseEventListener | null = null;
+
+  public AxiosResponse: AxiosResponse | null = null;
+
+  constructor(url: string, options: SimpleAxiosSSEOptions = {}) {
+    this.url = url;
+    this.options = {
+      method: 'GET',
+      headers: {
+        Accept: 'text/event-stream',
+        ...options.headers,
+      },
+      timeout: 6 * 60 * 1000, // 默认6分钟超时
+      ...options,
+    };
+
+    // 初始化重连相关配置
+    this.autoReconnect = options.autoReconnect ?? true;
+    this.reconnectDelay = options.reconnectDelay ?? 3000;
+    this.maxRetries = options.maxRetries ?? 3;
+    this.useLastEventId = options.useLastEventId ?? true;
+
+    this.lastEventIdHeaderName = options.lastEventIdHeaderName ?? DefaultLastEventIdHeaderName;
+
+    if (options.autoConnect !== false) {
+      this.connect();
+    }
+  }
+
+  /**
+   * 添加事件监听器
+   */
+  addEventListener(type: string, listener: SSEEventListener): void {
+    if (!this.listeners[type]) {
+      this.listeners[type] = [];
+    }
+    if (!this.listeners[type].includes(listener)) {
+      this.listeners[type].push(listener);
+    }
+  }
+
+  /**
+   * 移除事件监听器
+   */
+  removeEventListener(type: string, listener: SSEEventListener): void {
+    if (this.listeners[type]) {
+      const index = this.listeners[type].indexOf(listener);
+      if (index > -1) {
+        this.listeners[type].splice(index, 1);
+      }
+    }
+  }
+
+  /**
+   * 分发事件
+   */
+  private dispatchEvent(event: SSEEvent): void {
+    // 调用 onXXX 处理器
+    const handlerName = `on${event.type}` as keyof this;
+    const handler = this[handlerName];
+    if (typeof handler === 'function') {
+      (handler as SSEEventListener)(event);
+    }
+
+    // 调用 addEventListener 注册的监听器
+    if (this.listeners[event.type]) {
+      this.listeners[event.type].forEach((listener) => {
+        try {
+          listener(event);
+        } catch (error) {
+          console.error('Error in event listener:', error);
+        }
+      });
+    }
+  }
+
+  private clearReconnectTimer(): void {
+    if (this.reconnectTimer) {
+      clearTimeout(this.reconnectTimer);
+      this.reconnectTimer = null;
+    }
+  }
+
+  /**
+   * 开始连接
+   */
+  connect(): void {
+    if (this.readyState === ReadyState.OPEN) {
+      return;
+    }
+
+    // 清除重连定时器
+    this.clearReconnectTimer();
+
+    this.readyState = ReadyState.CONNECTING;
+    this.cancelSource = axios.CancelToken.source();
+    this.manualClose = false;
+
+    // 准备请求头，如果有 lastEventId 则添加
+    const headers = { ...this.options.headers };
+    if (this.useLastEventId && this.lastEventId) {
+      headers[this.lastEventIdHeaderName] = this.lastEventId;
+    }
+
+    const requestConfig: AxiosRequestConfig = {
+      ...this.options,
+      url: this.url,
+      headers,
+      responseType: 'text',
+      cancelToken: this.cancelSource.token,
+      onDownloadProgress: (progressEvent) => {
+        this.handleDownloadProgress(progressEvent);
+      },
+    };
+
+    axiosInstance
+      .request({ ...requestConfig, url: this.url })
+      .then((response: AxiosResponse) => {
+        this.AxiosResponse = response;
+        if (!this.closed) {
+          this.handleComplete(response);
+        }
+      })
+      .catch((error: AxiosError) => {
+        if (!this.closed && !axios.isCancel(error)) {
+          this.handleError(error);
+        }
+      });
+  }
+
+  /**
+   * 处理下载进度，解析 SSE 数据
+   */
+  private handleDownloadProgress(progressEvent: ProgressEvent): void {
+    if (this.closed) return;
+
+    // 获取新接收到的数据
+    const target = progressEvent.target as XMLHttpRequest;
+
+    // 首次接收数据时触发 open 事件
+    if (this.readyState === ReadyState.CONNECTING) {
+      this.readyState = ReadyState.OPEN;
+      // 重置重试计数，连接成功
+      if (target.status >= 200 && target.status < 300) {
+        this.retryCount = 0;
+      }
+      this.dispatchEvent({
+        type: 'open',
+        target: this,
+      } as SSEOpenEvent);
+    }
+
+    if (!target || !target.responseText) return;
+
+    const fullText = target.responseText;
+    const newData = fullText.substring(this.lastProcessedIndex);
+    this.lastProcessedIndex = fullText.length;
+
+    if (!newData) return;
+
+    // 将新数据添加到缓冲区
+    this.buffer += newData;
+
+    // 解析 SSE 数据块
+    this.parseSSEData();
+  }
+
+  /**
+   * 解析 SSE 数据格式
+   */
+  private parseSSEData(): void {
+    // SSE 数据块以双换行符分隔
+    const chunks = this.buffer.split(/\r?\n\r?\n/);
+
+    // 保留最后一个可能不完整的块
+    this.buffer = chunks.pop() || '';
+
+    chunks.forEach((chunk) => {
+      if (chunk.trim()) {
+        this.parseSSEChunk(chunk.trim());
+      }
+    });
+  }
+
+  /**
+   * 解析单个 SSE 数据块
+   */
+  private parseSSEChunk(chunk: string): void {
+    const lines = chunk.split(/\r?\n/);
+    const eventData: {
+      id: string | null;
+      event: string;
+      data: string[];
+      retry: number | null;
+    } = {
+      id: null,
+      event: 'message',
+      data: [],
+      retry: null,
+    };
+
+    lines.forEach((line) => {
+      if (line.startsWith(':')) {
+        // 注释行，忽略
+        return;
+      }
+
+      const colonIndex = line.indexOf(':');
+      let field: string;
+      let value: string;
+
+      if (colonIndex === -1) {
+        field = line;
+        value = '';
+      } else {
+        field = line.substring(0, colonIndex);
+        // 跳过冒号后的第一个空格（如果存在）
+        value = line.substring(colonIndex + 1).replace(/^ /, '');
+      }
+
+      switch (field) {
+        case 'id':
+          eventData.id = value;
+          break;
+        case 'event':
+          eventData.event = value;
+          break;
+        case 'data':
+          eventData.data.push(value);
+          break;
+        case 'retry':
+          eventData.retry = parseInt(value, 10);
+          break;
+      }
+    });
+
+    // 保存 lastEventId 用于重连
+    if (eventData.id !== null && this.useLastEventId) {
+      this.lastEventId = eventData.id;
+    }
+
+    // 保存服务器指定的重连延迟时间
+    if (eventData.retry !== null) {
+      this.serverRetryDelay = eventData.retry;
+    }
+
+    // 如果有数据，触发事件
+    if (eventData.data.length > 0 || eventData.event !== 'message') {
+      const event: SSEEventBase = {
+        type: eventData.event,
+        target: this,
+        data: eventData.data.join('\n'),
+        lastEventId: eventData.id,
+        retry: eventData.retry,
+      };
+
+      this.dispatchEvent(event as SSEEvent);
+    }
+  }
+
+  /**
+   * 处理请求完成
+   */
+  private handleComplete(response: AxiosResponse): void {
+    // 处理剩余的缓冲区数据
+    if (this.buffer.trim()) {
+      this.parseSSEChunk(this.buffer.trim());
+    }
+
+    // 连接正常结束，尝试重连
+    this._markClosed();
+  }
+
+  /**
+   * 处理错误
+   */
+  private handleError(error: AxiosError): void {
+    const errorEvent: SSEErrorEvent = {
+      type: 'error',
+      target: this,
+      error: error as Error,
+      message: error.message,
+    };
+    this.dispatchEvent(errorEvent);
+
+    // 发生错误，尝试重连
+    this._markClosed();
+  }
+
+  /**
+   * 标记连接关闭并处理重连逻辑
+   */
+  private _markClosed(): void {
+    if (this.closed) return;
+
+    // 重置连接状态
+    this.readyState = ReadyState.CLOSED;
+    this.buffer = '';
+    this.lastProcessedIndex = 0;
+
+    if (this.cancelSource) {
+      this.cancelSource = null;
+    }
+
+    // 触发 close 事件
+    this.dispatchEvent({
+      type: 'close',
+      target: this,
+    } as SSECloseEvent);
+
+    // 如果不是手动关闭且启用自动重连，则尝试重连
+    if (!this.manualClose && this.autoReconnect) {
+      this._attemptReconnect();
+    }
+  }
+
+  /**
+   * 尝试重连
+   */
+  private _attemptReconnect(): void {
+    // 检查是否超过最大重试次数
+    if (this.maxRetries > 0 && this.retryCount >= this.maxRetries) {
+      console.warn(`SSE 重连失败：超过最大重试次数 ${this.maxRetries}`);
+      return;
+    }
+
+    this.retryCount++;
+
+    // 使用服务器指定的延迟时间，否则使用配置的延迟时间
+    const delay = this.serverRetryDelay ?? this.reconnectDelay;
+
+    console.log(`SSE 将在 ${delay}ms 后尝试第 ${this.retryCount} 次重连`);
+
+    this.reconnectTimer = setTimeout(() => {
+      this.reconnectTimer = null;
+      this.connect();
+    }, delay);
+  }
+
+  /**
+   * 关闭连接
+   */
+  close(): void {
+    if (this.closed) return;
+
+    this.manualClose = true;
+
+    // 清除重连定时器
+    this.clearReconnectTimer();
+
+    this.readyState = ReadyState.CLOSED;
+
+    if (this.cancelSource) {
+      this.cancelSource.cancel('Connection closed by user');
+      this.cancelSource = null;
+    }
+
+    this.dispatchEvent({
+      type: 'close',
+      target: this,
+    } as SSECloseEvent);
+  }
+
+  /**
+   * 强制重连（会重置重试计数）
+   */
+  reconnect(): void {
+    this.retryCount = 0;
+    this.manualClose = false;
+
+    if (this.readyState !== ReadyState.CLOSED) {
+      this.close();
+    }
+
+    // 延迟一下再连接，确保上次连接完全关闭
+    setTimeout(() => {
+      this.connect();
+    }, 100);
+  }
+}
+
+/**
+ * 创建 SimpleAxiosSSE 实例的工厂函数
+ */
+export function createSimpleAxiosSSE(
+  url: string,
+  options: SimpleAxiosSSEOptions = {}
+): SimpleAxiosSSE {
+  const sse = new SimpleAxiosSSE(url, options);
+
+  return sse;
+}
+
+export default createSimpleAxiosSSE;
+
+```
+
+## 记录一些实现时的思路
+### 架构设计
+- **双阶段编排**: 先执行“阶段一（推荐/准备）”产出提示词，再进入“阶段二（解释/生成）”产出增量结果；由编排层统一串联两个阶段，保证前后依赖关系。
+- **模块职责分离**: 底层“单阶段轮询模块”专注一个阶段的拉取逻辑；上层“业务编排模块”只协调阶段关系与状态透传，便于复用与扩展。
+- **类型与协议解耦**: 以请求/响应契约（DTO）约束字段，不在业务层直接耦合底层字段命名与结构，降低服务端变更的影响面。
+
+### 状态管理与容错
+- **统一状态机**: Ready → Pending → Loading → Success；异常分为 Error（业务可恢复）与 SystemError（系统级）；Stop 表示用户主动中止。进入终态后丢弃后续事件，保证幂等与一致性。
+- **流式优先，轮询兜底**: 优先走“流式接口”，开启自动重连；达到重试上限后自动降级到“定时轮询接口”，确保在网络或网关不稳定时仍能收敛。
+- **错误分级**: 将后端任务态（如 Failed/Canceled）归为系统级；请求异常按可恢复与不可恢复区分，分别落到 Error 或 SystemError，驱动不同的 UI 策略。
+- **可取消的全链路**: 当尚未拿到任务标识时先等待首包，UI 立即切 Stop；随后发送取消请求并统一关闭流连接/暂停轮询，避免资源泄漏。
+
+### 可观测性与追踪
+- **链路与任务追踪**: 对外暴露“链路追踪ID”和“任务ID”，用于用户反馈与问题排查；在关闭流式连接时读取响应头中的追踪信息以补齐链路。
+- **增量有序累积**: 以“片段索引”对消息进行有序累积，维护“索引→消息”的映射，确保渲染可逐步更新且不会乱序。
+- **断点续传语义**: 流式通道支持 Last-Event-Id 语义的请求头，结合自动重连实现弱网下的平滑恢复。
+- **降级可见**: 当从流式降级为轮询时，明确记录降级原因与重试次数，便于后续观测与优化。
+
+### 交互与用户感知
+- **状态-UI 对齐**: 片段索引为 0 → Pending；大于 0 → Loading；为 -1 → Success。使用这一约定直连 UI 提示，降低条件分支复杂度。
+- **逐步可用**: 每接收到一条增量片段就立即写入消息映射并渲染，提升“内容在生成中”的感知质量。
+- **按阶段刷新**: 刷新时仅对未完成的阶段重试，已完成阶段跳过，减少重复计算与抖动。
+- **友好的中止体验**: 用户中止后即时进入 Stop，后台取消在拿到任务标识后补发，保证主观“秒停”且不遗留后台任务。
+
+### API 交互策略
+- **提示词令牌化**: 先通过“提示词交换接口”将明文提示词换取令牌，再用令牌调用后续接口，避免在链路中直接下发敏感文本。
+- **接口分层**: 
+  - [流式接口]：返回增量消息片段与任务态；支持自动重连与 Last-Event-Id。
+  - [轮询接口]：按固定间隔拉取当前任务快照，直至终态。
+- **端点参数化**: 通过“阶段/场景参数”切换不同业务端点，底层复用相同的轮询与状态逻辑。
+
+### 对接方式
+- **只读输出**: 状态（Ready/Pending/Loading/Success/Error/SystemError/Stop）、提示词（可选）、消息映射（索引→消息）、链路追踪ID、任务ID。
+- **可调用方法**: 创建、刷新、停止。创建会重置上下文并串联双阶段；刷新仅补齐未完成阶段；停止会立即反馈 UI 并在拿到任务标识后触发后端取消。

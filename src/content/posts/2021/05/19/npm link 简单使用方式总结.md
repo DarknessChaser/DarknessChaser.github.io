@@ -1,0 +1,17 @@
+---
+title: "npm link 简单使用方式总结"
+published: 2021-05-19
+image: "/img/post-bg.jpg"
+tags: ["npm", "npm link", "vue 组件本地开发"]
+---
+## 目的
+本地开发新版公共组件时，在没发版的情况下就在业务代码中预览并快速debug。
+
+## npm link
+1. 第一步，先在公共组件代码仓库中执行`npm link`
+2. 第二步，再在业务代码仓库中执行`npm link <公共组件packagename>`
+
+官方还有个简单的方法`npm link ../公共组件的地址 `，相当于快捷执行了上面的第一步和第二步。
+
+## 移除link到本地项目加载依赖
+在业务代码仓库中执行`npm i`更新公共组件仓库依赖为正常的从npm下载的依赖。link和解除link都有可能导致npm dev找不到依赖，重启一下就好了。

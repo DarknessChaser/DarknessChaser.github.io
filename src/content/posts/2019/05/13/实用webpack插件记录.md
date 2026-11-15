@@ -1,0 +1,12 @@
+---
+title: "实用webpack插件记录"
+published: 2019-05-13
+image: "/img/post-bg.jpg"
+tags: ["webpack", "webpack插件"]
+---
+## webpack-bundle-analyzer
+webpack-bundle-analyzer可以看到项目各模块的大小，可以按需优化。官方文档：
+[https://www.npmjs.com/package/webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer "官方文档")，中文简单介绍：[https://segmentfault.com/a/1190000012220132](https://segmentfault.com/a/1190000012220132 "中文简介")
+
+## ip
+可以直接生成通过本地IP地址访问的URL，获取IP`const ip = require('ip').address();`，并在webpack-dev配置中关闭host校验`disableHostCheck: true`。

@@ -1,0 +1,43 @@
+---
+title: "科学使用GitHub"
+published: 2018-07-25
+image: "/img/post-bg.jpg"
+tags: ["科学使用", "网络工程", "GitHub", "代理"]
+---
+# 起因
+最近公司电脑下班的时候GitHub desktop同步就有问题，于是查了下git的工作原理。发现git主要有两种传输方式，一种是SSH，一种是HTTP/HTTPS，GitHub desktop应该使用的是后者。
+
+# 设置
+GitHub desktop本质就是个GUI，所以直接搜索git设置代理即可，结果如下。
+
+```
+    启动
+
+    git config --global http.proxy http://127.0.0.1:18809
+    
+    git config --global https.proxy https://127.0.0.1:18809
+    
+    git config --global http.proxy 'socks5://127.0.0.1:18808' 
+    
+    git config --global https.proxy 'socks5://127.0.0.1:18808'
+    
+    
+    
+    取消
+    
+    git config --global --unset http.proxy
+    
+    git config --global --unset https.proxy
+```
+
+打开客户端，查找对应的端口号，一般是18808，直接上sock5即可。
+
+如果使用SSH方式链接，Window环境下可以在 **用户根目录/.ssh/config** （如果没有则手动创建） 中加入以下内容，其中**-S**的意思是使用sock5代理，使用HTTP代理可改成**-H**
+
+```
+	Host github.com
+	ProxyCommand connect -S 127.0.0.1:18808 %h 22
+```
+
+# 参考讨论
+[git 设置和取消代理](https://gist.github.com/laispace/666dd7b27e9116faece6 "git 设置和取消代理")

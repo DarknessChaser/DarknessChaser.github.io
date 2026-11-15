@@ -1,0 +1,48 @@
+---
+title: "（转载）maven怎么用"
+published: 2018-04-14
+image: "/img/post-bg.jpg"
+tags: ["maven", "myeclipse"]
+---
+# 一、Maven常用命令
+
+在学习使用Maven构建项目之前，先来了解一下Maven一些实用的命令。<span style="font-size: 14pt;">mvn</span>的命令有很多，在项目开发中，理解了下面的几个常用命令后，运用maven就基本没有问题了。Maven常用的命令如下：
+
+## 1.1 常用的mvn命令
+
+`mvn archetype:create` 创建 Maven 项目
+
+`mvn compile` 编译主程序源代码，不会编译test目录的源代码。第一次运行时，会下载相关的依赖包，可能会比较费时
+
+`mvn test-compile` 编译测试代码，compile之后会生成target文件夹，主程序编译在classes下面，测试程序放在test-classes下
+
+`mvn test` 运行应用程序中的单元测试 
+
+`mvn site` 生成项目相关信息的网站
+
+`mvn clean` 清除目标目录中的生成结果
+
+`mvn package` 依据项目生成 jar 文件，打包之前会进行编译，测试
+
+`mvn install` 在本地 Repository 中安装 jar
+
+`mvn eclipse:eclipse` 生成 Eclipse 项目文件及包引用定义
+
+`mvn deploy` 在整合或者发布环境下执行，将最终版本的包拷贝到远程的repository，使得其他的开发者或者工程可以共享。
+
+## 1.2 一些高级功能命令
+
+<span style="color: #0070c0;">跳过测试类 ：</span> -<span style="color: blue;">Dmaven.test.skip</span>=true
+
+<span style="color: #0070c0;">下载jar包源码：</span> -<span style="color: blue;">DdownloadSource</span>=true
+
+<span style="color: #0070c0;">下载javadocs：</span> -<span style="color: blue;">DdownloadJavadocs</span>=true
+
+例如：
+
+> mvn package -Dmaven.test.skip=true ：表示打包时忽略掉test目录，不编译。
+> 
+> mvn install -DdownloadSource=true ：本地安装jar包时，下载jar的源文件包。
+
+# 二、Maven简单使用
+引用一波原文[maven简单使用](https://www.cnblogs.com/sunddenly/p/4341542.html "maven简单使用")

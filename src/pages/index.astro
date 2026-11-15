@@ -1,0 +1,33 @@
+---
+import Pagination from "../components/control/Pagination.astro";
+import PostPage from "../components/PostPage.astro";
+import { PAGE_SIZE } from "../constants/constants";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getSortedPosts } from "../utils/content-utils";
+
+const allBlogPosts = await getSortedPosts();
+const lastPage = Math.max(1, Math.ceil(allBlogPosts.length / PAGE_SIZE));
+const page = {
+	data: allBlogPosts.slice(0, PAGE_SIZE),
+	start: 0,
+	end: Math.min(PAGE_SIZE, allBlogPosts.length) - 1,
+	size: PAGE_SIZE,
+	total: allBlogPosts.length,
+	currentPage: 1,
+	lastPage,
+	url: {
+		current: "/",
+		next: lastPage > 1 ? `/page/2/` : undefined,
+		prev: undefined,
+		first: undefined,
+		last: lastPage > 1 ? `/page/${lastPage}/` : undefined,
+	},
+};
+
+const len = page.data.length;
+---
+
+<MainGridLayout>
+    <PostPage page={page}></PostPage>
+    <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
+</MainGridLayout>

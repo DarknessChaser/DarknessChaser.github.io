@@ -1,0 +1,53 @@
+---
+/**
+ * giscus comment widget (https://giscus.app)
+ * Fill in the values below from your giscus.app configuration.
+ * The widget simply does not render until `repo` is configured.
+ */
+const GISCUS = {
+	repo: "", // e.g. "DarknessChaser/DarknessChaser.github.io"
+	repoId: "", // from giscus.app
+	category: "Announcements",
+	categoryId: "", // from giscus.app
+	mapping: "pathname",
+	lang: "zh-CN",
+};
+
+const enabled = GISCUS.repo !== "" && GISCUS.repoId !== "";
+---
+
+{enabled && (
+	<div class="mb-4 rounded-[var(--radius-large)] card-base px-6 md:px-9 py-6 relative w-full">
+		<div id="giscus-container"></div>
+	</div>
+)}
+
+{enabled && (
+	<script define:vars={{ giscus: GISCUS }}>
+		(() => {
+			const init = () => {
+				const el = document.getElementById("giscus-container");
+				if (!el || el.querySelector("iframe")) return;
+				const s = document.createElement("script");
+				s.src = "https://giscus.app/client.js";
+				s.setAttribute("data-repo", giscus.repo);
+				s.setAttribute("data-repo-id", giscus.repoId);
+				s.setAttribute("data-category", giscus.category);
+				s.setAttribute("data-category-id", giscus.categoryId);
+				s.setAttribute("data-mapping", giscus.mapping);
+				s.setAttribute("data-strict", "0");
+				s.setAttribute("data-reactions-enabled", "1");
+				s.setAttribute("data-emit-metadata", "0");
+				s.setAttribute("data-input-position", "top");
+				s.setAttribute("data-theme", "preferred_color_scheme");
+				s.setAttribute("data-lang", giscus.lang);
+				s.setAttribute("data-loading", "lazy");
+				s.crossOrigin = "anonymous";
+				s.async = true;
+				el.appendChild(s);
+			};
+			init();
+			document.addEventListener("swup:page:view", init);
+		})();
+	</script>
+)}
