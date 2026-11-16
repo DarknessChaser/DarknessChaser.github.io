@@ -18,8 +18,9 @@ Node 版本由 Volta 固定在 22（见 package.json 的 `volta` 字段）。
 - `src/content/posts/YYYY/MM/DD/<slug>.md` — 文章。文件名路径即最终 URL：`/YYYY/MM/DD/<slug>/`，与旧 Jekyll 站完全一致（大小写、中文、标点均保留）
 - `src/content/spec/about.md` — 关于页
 - `src/config.ts` — 站点标题、导航、侧栏资料、主题色
-- `public/img`、`public/images` — 文章图片（正文中以 `/img/...` 绝对路径引用）
-- `public/portfolio/` — 照搬自旧站的 portfolio 静态页
+- `public/images` — 文章正文插图（以 `/images/...` 绝对路径引用）
+- `public/img/custom` — 手工挑选的背景图与头像（banner、about、tag、头像等），与普通插图分开存放
+- `public/favicon` — 明/暗两套 favicon，源图是旧站的「黑」字图标
 - `scripts/migrate-posts.mjs` — 一次性迁移脚本（Jekyll → Astro，已执行完毕，留档备查）
 - `scripts/audit-urls.mjs` — URL 对账脚本：对比 jekyll-legacy 分支与 dist 的全部文章 URL
 
@@ -32,7 +33,7 @@ Node 版本由 Volta 固定在 22（见 package.json 的 `volta` 字段）。
 title: 文章标题
 published: 2026-01-01
 description: 摘要（可选）
-image: /img/post-bg.jpg（可选，文章封面）
+image: /img/custom/post-bg-talk.jpg（可选，文章封面）
 tags: [标签1, 标签2]
 ---
 ```

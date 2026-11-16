@@ -1,7 +1,7 @@
 ---
 title: "模仿vue checkbox改造checkbox组件小结"
 published: 2020-03-26
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue", "checkbox"]
 ---
 # 简介

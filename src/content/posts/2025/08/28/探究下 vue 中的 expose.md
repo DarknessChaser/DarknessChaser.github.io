@@ -1,7 +1,7 @@
 ---
 title: "探究下 vue 中的 expose"
 published: 2025-08-28
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue expose", "vue defineExpose", "vue composition-api", "vue2.7", "vue3"]
 ---
 ## 缘起

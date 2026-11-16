@@ -1,8 +1,8 @@
 ---
 title: "linux学习之路(五)"
 published: 2018-09-16
+category: "运维与系统"
 description: "如何增加Linux swap区和常见防火墙操作"
-image: "/img/post-bg.jpg"
 tags: ["Linux", "增加swap"]
 ---
 # 增加swap区

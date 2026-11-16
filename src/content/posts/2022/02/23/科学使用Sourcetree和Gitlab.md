@@ -1,7 +1,7 @@
 ---
 title: "科学使用Sourcetree和Gitlab"
 published: 2022-02-23
-image: "/img/post-bg.jpg"
+category: "开发工具"
 tags: ["科学使用", "Gitlab", "Sourcetree"]
 ---
 # 起因

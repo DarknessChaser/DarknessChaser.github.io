@@ -1,7 +1,7 @@
 ---
 title: "nextTick执行顺序小探"
 published: 2021-01-20
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue", "nextTick"]
 ---
 # 缘起

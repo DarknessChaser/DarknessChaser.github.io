@@ -1,7 +1,7 @@
 ---
 title: "解决新版Infinity无法修改天气中的所在城市的脚本"
 published: 2018-01-24
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["JavaScript", "Infinity", "infinity"]
 ---
 ## 前言

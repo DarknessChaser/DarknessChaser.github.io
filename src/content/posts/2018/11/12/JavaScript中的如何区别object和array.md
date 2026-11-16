@@ -1,7 +1,7 @@
 ---
 title: "JavaScript中的如何区别object和array"
 published: 2018-11-12
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["JavaScript判断object和array", "面试总结"]
 ---
 # JavaScript中如何区别object和array

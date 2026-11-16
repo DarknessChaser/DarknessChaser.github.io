@@ -1,7 +1,7 @@
 ---
 title: "事情不是你想象的那样-在chrome下操作cookie时的一些问题"
 published: 2019-09-17
-image: "/img/post-bg.jpg"
+category: "浏览器与 Web API"
 tags: ["chrome", "cookie", "localhost", "跨域", "js-cookie"]
 ---
 ## 简介

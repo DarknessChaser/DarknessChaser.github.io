@@ -1,7 +1,7 @@
 ---
 title: "探索vue checkbox v-model绑定数组语法糖的原理"
 published: 2020-02-06
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue", "checkbox", "v-model", "v-model原理"]
 ---
 # 简介

@@ -1,7 +1,7 @@
 ---
 title: "探索el-input使用v-model.trim后无法输入空格的问题"
 published: 2020-12-06
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["element-ui", "el-input", "trim", "无法输入空格"]
 ---
 # 原理

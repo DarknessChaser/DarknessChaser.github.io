@@ -1,7 +1,7 @@
 ---
 title: "写给自己看的前端开发神器Emmet使用手册"
 published: 2019-01-07
-image: "/img/post-bg.jpg"
+category: "开发工具"
 tags: ["前端开发", "Emmet使用手册", "Emmet"]
 ---
 ## Emmet是干啥的？为什么要用Emmet

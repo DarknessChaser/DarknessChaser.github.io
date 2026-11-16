@@ -1,7 +1,7 @@
 ---
 title: "记一次类 ChatGPT 的网页模块开发"
 published: 2025-08-11
-image: "/img/post-bg.jpg"
+category: "AI 工具"
 tags: ["ChatGPT", "SSE", "流式渲染"]
 ---
 ## 记一次类 ChatGPT 的网页模块开发

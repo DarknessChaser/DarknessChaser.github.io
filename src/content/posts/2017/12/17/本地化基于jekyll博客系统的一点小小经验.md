@@ -1,7 +1,7 @@
 ---
 title: "本地化基于jekyll博客系统的一点小小经验"
 published: 2017-12-17
-image: "/img/post-bg.jpg"
+category: "开发工具"
 tags: ["jekyll"]
 ---
 # 试着写点东西

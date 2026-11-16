@@ -1,7 +1,7 @@
 ---
 title: "利用shared worker实现浏览器关闭全部tab后登出用户"
 published: 2022-11-13
-image: "/img/post-bg.jpg"
+category: "浏览器与 Web API"
 tags: ["shared worker", "关闭全部tab后登出用户"]
 ---
 ## 效果

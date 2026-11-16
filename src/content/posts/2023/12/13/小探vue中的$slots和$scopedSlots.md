@@ -1,7 +1,7 @@
 ---
 title: "小探vue中的$slots和$scopedSlots"
 published: 2023-12-13
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue $slots", "vue $scopedSlots", "vue2.6", "vue2.7", "vue3"]
 ---
 ## 缘起

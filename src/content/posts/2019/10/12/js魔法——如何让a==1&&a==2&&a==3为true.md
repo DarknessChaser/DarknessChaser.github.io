@@ -1,7 +1,7 @@
 ---
 title: "js魔法——如何让a==1&&a==2&&a==3为true"
 published: 2019-10-12
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["a==1&&a==2&&a==3", "js", "面试题", "JavaScript"]
 ---
 ## 简介

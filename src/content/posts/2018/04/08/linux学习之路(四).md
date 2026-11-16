@@ -1,8 +1,8 @@
 ---
 title: "linux学习之路(四)"
 published: 2018-04-08
+category: "运维与系统"
 description: "如何使用Debian系systemctl命令"
-image: "/img/post-bg.jpg"
 tags: ["Linux", "Debian", "systemctl", "开机启动"]
 ---
 ### 前言

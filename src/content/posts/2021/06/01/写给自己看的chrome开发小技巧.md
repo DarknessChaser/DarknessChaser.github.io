@@ -1,7 +1,7 @@
 ---
 title: "写给自己看的chrome开发小技巧"
 published: 2021-06-01
-image: "/img/post-bg.jpg"
+category: "开发工具"
 tags: ["chrome 开发者工具", "前端开发小技巧", "科学使用", "科学使用 chrome"]
 ---
 ## console/elements 快捷操作

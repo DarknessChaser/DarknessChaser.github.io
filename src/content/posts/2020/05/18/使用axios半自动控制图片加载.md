@@ -1,7 +1,7 @@
 ---
 title: "使用axios半自动控制图片加载"
 published: 2020-05-18
-image: "/img/post-bg.jpg"
+category: "浏览器与 Web API"
 tags: ["axios", "加载图片", "Ajax"]
 ---
 # 问题

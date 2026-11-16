@@ -1,7 +1,7 @@
 ---
 title: "兄弟选择器配合flex-reverse实现连线hover效果"
 published: 2020-11-22
-image: "/img/post-bg.jpg"
+category: "CSS 与布局"
 tags: ["css", "pointer-events", "css兄弟选择器", "flex-flow reverse"]
 ---
 # 原理

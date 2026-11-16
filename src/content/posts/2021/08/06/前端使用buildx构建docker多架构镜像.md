@@ -1,7 +1,7 @@
 ---
 title: "前端使用buildx构建docker多架构镜像"
 published: 2021-08-06
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["docker", "buildx", "arm"]
 ---
 ## 需求背景

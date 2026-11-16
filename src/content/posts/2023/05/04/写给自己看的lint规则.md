@@ -1,7 +1,7 @@
 ---
 title: "写给自己看的lint规则"
 published: 2023-05-04
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["lint"]
 ---
 ## 依赖

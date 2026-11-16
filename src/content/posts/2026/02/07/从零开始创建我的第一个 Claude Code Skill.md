@@ -1,7 +1,7 @@
 ---
 title: "从零开始创建我的第一个 Claude Code Skill"
 published: 2026-02-07
-image: "/img/post-bg.jpg"
+category: "AI 工具"
 tags: ["Claude Code", "Skill"]
 ---
 ## 起因：我到底给 Anthropic 送了多少钱？

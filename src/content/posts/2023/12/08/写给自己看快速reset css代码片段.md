@@ -1,7 +1,7 @@
 ---
 title: "写给自己看快速reset css代码片段"
 published: 2023-12-08
-image: "/img/post-bg.jpg"
+category: "CSS 与布局"
 tags: ["reset css", "代码片段"]
 ---
 ## button

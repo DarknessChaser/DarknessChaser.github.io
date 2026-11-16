@@ -1,8 +1,8 @@
 ---
 title: "linux学习之路（三）"
 published: 2018-03-07
+category: "运维与系统"
 description: "记录几个最近发现的Linux主机常用工具"
-image: "/img/post-bg.jpg"
 tags: ["Linux", "VPS", "Linux性能测试", "BestTrace"]
 ---
 ## ping测试

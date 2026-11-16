@@ -1,7 +1,7 @@
 ---
 title: "小探vue2中为什么使用transition过渡元素时，元素不能show和key同时存在"
 published: 2023-12-01
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue transition", "vue2"]
 ---
 ## 缘起

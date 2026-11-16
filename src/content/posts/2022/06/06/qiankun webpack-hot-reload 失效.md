@@ -1,7 +1,7 @@
 ---
 title: "qiankun webpack-hot-reload 失效"
 published: 2022-06-06
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["qiankun", "fetch", "CORS", "dev server"]
 ---
 # 依赖版本

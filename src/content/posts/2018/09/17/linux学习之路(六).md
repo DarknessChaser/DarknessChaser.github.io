@@ -1,8 +1,8 @@
 ---
 title: "linux学习之路(六)"
 published: 2018-09-17
+category: "运维与系统"
 description: "总结一些常用vps脚本"
-image: "/img/post-bg.jpg"
 tags: ["Linux", "常用脚本"]
 ---
 # 安装常见HTTPS证书：

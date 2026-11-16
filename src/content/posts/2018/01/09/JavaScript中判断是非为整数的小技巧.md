@@ -1,7 +1,7 @@
 ---
 title: "JavaScript中判断是非为整数的小技巧"
 published: 2018-01-09
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["JavaScript", "判断是非为整数"]
 ---
 ## 前言

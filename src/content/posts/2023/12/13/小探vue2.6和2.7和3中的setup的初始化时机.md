@@ -1,7 +1,7 @@
 ---
 title: "小探vue2.6和2.7和3中的setup的初始化时机"
 published: 2023-12-13
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue setup", "vue2.6", "vue2.7", "vue3"]
 ---
 ## 缘起

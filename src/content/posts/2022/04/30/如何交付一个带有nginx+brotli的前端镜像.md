@@ -1,7 +1,7 @@
 ---
 title: "如何交付一个带有nginx+brotli的前端镜像"
 published: 2022-04-30
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["docker", "nginx", "brotli", "科学使用"]
 ---
 # 啥是brotli

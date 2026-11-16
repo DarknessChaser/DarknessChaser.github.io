@@ -1,7 +1,7 @@
 ---
 title: "新版chrome使用新版安卓媒体选择器处理HEIC问题记录and如何科学处理移动端HEIC图片"
 published: 2023-09-15
-image: "/img/post-bg.jpg"
+category: "浏览器与 Web API"
 tags: ["chrome HEIC bug", "HEIC"]
 ---
 ## 问题

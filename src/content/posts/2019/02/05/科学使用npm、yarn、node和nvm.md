@@ -1,7 +1,7 @@
 ---
 title: "科学使用npm、yarn、node和nvm"
 published: 2019-02-05
-image: "/img/post-bg.jpg"
+category: "开发工具"
 tags: ["科学使用", "网络工程", "npm", "nvm", "代理"]
 ---
 # 问题

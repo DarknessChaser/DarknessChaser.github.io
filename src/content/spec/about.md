@@ -12,5 +12,4 @@ Hey，我是**漆黑菌**，一只打杂的程序猿，现在南京工作。
 ## Links
 
 - [GitHub](https://github.com/DarknessChaser)
-- [Portfolio](/portfolio/)
-- [Hux](http://huangxuan.me/)
+- [GitHub Pages](https://pages.github.com/)

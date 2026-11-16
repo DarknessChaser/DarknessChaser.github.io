@@ -1,7 +1,7 @@
 ---
 title: "promise比callback有什么优势的一波总结"
 published: 2019-07-29
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["promise比callback优势"]
 ---
 ## 参考文章

@@ -1,7 +1,7 @@
 ---
 title: "cent6下傻瓜式配置开机启动"
 published: 2018-03-02
-image: "/img/post-bg.jpg"
+category: "运维与系统"
 tags: ["开机启动", "Linux"]
 ---
 ## 对于已经注册在service中的服务

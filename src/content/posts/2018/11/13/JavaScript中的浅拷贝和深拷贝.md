@@ -1,7 +1,7 @@
 ---
 title: "JavaScript中的浅拷贝和深拷贝"
 published: 2018-11-13
-image: "/img/post-bg.jpg"
+category: "JavaScript"
 tags: ["JavaScript", "深拷贝", "浅拷贝", "面试总结"]
 ---
 # 浅拷贝与深拷贝

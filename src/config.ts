@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "/img/post-bg-desk.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "/img/custom/home-bg.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
@@ -30,12 +30,15 @@ export const siteConfig: SiteConfig = {
 		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
 	},
 	favicon: [
-		// Leave this array empty to use the default favicon
-		// {
-		//   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-		//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-		// }
+		// The legacy "黑" glyph: black for light mode, white for dark mode.
+		{ src: "/favicon/favicon-light-32.png", theme: "light", sizes: "32x32" },
+		{ src: "/favicon/favicon-light-128.png", theme: "light", sizes: "128x128" },
+		{ src: "/favicon/favicon-light-180.png", theme: "light", sizes: "180x180" },
+		{ src: "/favicon/favicon-light-192.png", theme: "light", sizes: "192x192" },
+		{ src: "/favicon/favicon-dark-32.png", theme: "dark", sizes: "32x32" },
+		{ src: "/favicon/favicon-dark-128.png", theme: "dark", sizes: "128x128" },
+		{ src: "/favicon/favicon-dark-180.png", theme: "dark", sizes: "180x180" },
+		{ src: "/favicon/favicon-dark-192.png", theme: "dark", sizes: "192x192" },
 	],
 };
 
@@ -45,10 +48,6 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "Portfolio",
-			url: "/portfolio/",
-		},
-		{
 			name: "GitHub",
 			url: "https://github.com/DarknessChaser", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
@@ -57,7 +56,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/img/about-my-gentle.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "/img/custom/about-my-gentle.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "漆黑菌",
 	bio: "人生梦想之一是和叶绿体整合，这样就可以不吃饭了。",
 	links: [

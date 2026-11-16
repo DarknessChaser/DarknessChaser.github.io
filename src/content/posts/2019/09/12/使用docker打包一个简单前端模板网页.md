@@ -1,7 +1,7 @@
 ---
 title: "使用docker打包一个简单前端模板网页"
 published: 2019-09-12
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["docker", "npm", "打包", "静态页面"]
 ---
 ## 需求背景

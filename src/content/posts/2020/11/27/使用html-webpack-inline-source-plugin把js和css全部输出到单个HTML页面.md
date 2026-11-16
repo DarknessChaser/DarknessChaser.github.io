@@ -1,7 +1,7 @@
 ---
 title: "使用html-webpack-inline-source-plugin把js和css全部输出到单个HTML页面"
 published: 2020-11-27
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["webpack", "html-webpack-inline-source-plugin", "vue-cli", "inline-js", "inline-css"]
 ---
 # 需求

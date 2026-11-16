@@ -24,7 +24,12 @@
         underline decoration-[var(--link-underline)] decoration-1 decoration-dashed underline-offset-4;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
-        display: inline-block;
+        /* NOTE: keep links as inline boxes. Upstream added `display: inline-block`
+           here (saicaca/fuwari#595), but combined with the 1px hover border-bottom
+           below it grows the line box by 1px on hover, which makes the text under
+           the pointer jitter up/down. The deployed demo does not have it, and
+           inline keeps the hover underline from affecting layout. */
+        /* display: inline-block; */
     
         &:hover, &:active {
             @apply decoration-transparent;

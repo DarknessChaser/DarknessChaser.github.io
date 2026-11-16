@@ -1,7 +1,7 @@
 ---
 title: "写给自己看的postcss-preset-env配置攻略"
 published: 2023-05-04
-image: "/img/post-bg.jpg"
+category: "前端工程化"
 tags: ["postcss-preset-env"]
 ---
 ## 默认安装

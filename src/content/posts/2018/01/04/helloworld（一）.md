@@ -1,7 +1,7 @@
 ---
 title: "hello world（一）"
 published: 2018-01-04
-image: "/img/post-bg-talk.jpg"
+category: "生活随笔"
 tags: ["helloworld", "记录生活"]
 ---
 ## 前言

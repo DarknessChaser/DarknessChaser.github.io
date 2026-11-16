@@ -1,7 +1,7 @@
 ---
 title: "web端常见editor和terminal解决方案"
 published: 2021-09-29
-image: "/img/post-bg.jpg"
+category: "浏览器与 Web API"
 tags: ["ace-editor", "monaco-editor", "CodeMirror", "CodeMirror6", "novnc", "guacamole", "xterm"]
 ---
 # editor

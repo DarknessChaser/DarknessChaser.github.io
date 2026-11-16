@@ -1,7 +1,7 @@
 ---
 title: "小探vue2中的$attrs是如何生成的"
 published: 2023-10-12
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue $attrs", "vue2"]
 ---
 ## 缘起

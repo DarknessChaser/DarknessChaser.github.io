@@ -1,7 +1,7 @@
 ---
 title: "单vue技术栈+qiankun全局状态管理"
 published: 2022-04-10
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue3", "vue2", "pinia", "vuex", "qiankun", "全局状态管理"]
 ---
 # vue2+qiankun+vuex全局状态管理

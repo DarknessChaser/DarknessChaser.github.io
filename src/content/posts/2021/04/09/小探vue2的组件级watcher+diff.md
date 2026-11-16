@@ -1,7 +1,7 @@
 ---
 title: "小探vue2的组件级watcher+diff"
 published: 2021-04-09
-image: "/img/post-bg.jpg"
+category: "Vue"
 tags: ["vue diff", "vue vdom", "vue watcher"]
 ---
 ## 缘起

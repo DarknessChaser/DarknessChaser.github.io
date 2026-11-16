@@ -1,8 +1,8 @@
 ---
 title: "CSS小笔记"
 published: 2018-08-22
+category: "CSS 与布局"
 description: "隐藏滚动条的css样式和IE11的一个flex渲染兼容问题"
-image: "/img/post-bg.jpg"
 tags: ["隐藏overflow", "css", "IE flex"]
 ---
 # 隐藏滚动条但是可以滚动

@@ -2,10 +2,13 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const raw = execSync('git -c core.quotepath=off ls-tree -r --name-only jekyll-legacy -- _posts', {
 	encoding: "utf8",
-	cwd: path.resolve(import.meta.dirname, ".."),
+	cwd: ROOT,
 });
 const oldUrls = raw
 	.split(/\r?\n/)
@@ -24,7 +27,7 @@ const walk = (dir, acc = []) => {
 	}
 	return acc;
 };
-const newUrls = walk(path.resolve(import.meta.dirname, "..", "dist")).filter((u) => /^20\d\d\//.test(u));
+const newUrls = walk(path.resolve(ROOT, "dist")).filter((u) => /^20\d\d\//.test(u));
 
 const missing = oldUrls.filter((u) => !newUrls.includes(`${u}/`));
 const extra = newUrls.filter((u) => !oldUrls.includes(u.slice(0, -1)));
