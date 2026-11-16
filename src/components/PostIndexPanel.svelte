@@ -3,30 +3,14 @@ import { onMount } from "svelte";
 
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
+import type { PostForList } from "../utils/content-utils";
 import { getPostUrlBySlug } from "../utils/url-utils";
 
-export let tags: string[];
-export let categories: string[];
-export let sortedPosts: Post[] = [];
-
-const params = new URLSearchParams(window.location.search);
-tags = params.has("tag") ? params.getAll("tag") : [];
-categories = params.has("category") ? params.getAll("category") : [];
-const uncategorized = params.get("uncategorized");
-
-interface Post {
-	slug: string;
-	data: {
-		title: string;
-		tags: string[];
-		category?: string;
-		published: Date;
-	};
-}
+export let sortedPosts: PostForList[] = [];
 
 interface Group {
 	year: number;
-	posts: Post[];
+	posts: PostForList[];
 }
 
 let groups: Group[] = [];
@@ -42,7 +26,12 @@ function formatTag(tagList: string[]) {
 }
 
 onMount(async () => {
-	let filteredPosts: Post[] = sortedPosts;
+	const params = new URLSearchParams(window.location.search);
+	const tags = params.getAll("tag");
+	const categories = params.getAll("category");
+	const uncategorized = params.get("uncategorized");
+
+	let filteredPosts: PostForList[] = sortedPosts;
 
 	if (tags.length > 0) {
 		filteredPosts = filteredPosts.filter(
@@ -71,7 +60,7 @@ onMount(async () => {
 			acc[year].push(post);
 			return acc;
 		},
-		{} as Record<number, Post[]>,
+		{} as Record<number, PostForList[]>,
 	);
 
 	const groupedPostsArray = Object.keys(grouped).map((yearStr) => ({

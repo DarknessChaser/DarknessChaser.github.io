@@ -38,14 +38,14 @@ PowerShell 其实可以分成两个版本。一个是 Windows 自带的 PowerShe
 
 我 VS Code 用的主题是**DimmedMonokai**，Windows Terminal 也打算用这个，配置结果如下（仅供参考）。
 
-```JSON
+```json
         "defaults": {
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "DimmedMonokai"
         },
 ```
 
-```JSON
+```json
     "schemes": [
         {
             "name": "DimmedMonokai",
@@ -75,7 +75,7 @@ PowerShell 其实可以分成两个版本。一个是 Windows 自带的 PowerShe
 
 注意使用的时候要先和原先的配置对比一下，并留意注释；比如`profiles.list`在不同机器上就不一样。
 
-```JSON
+```json
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",

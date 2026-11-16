@@ -5,7 +5,7 @@ category: "技术文档"
 tags: ["JavaScript", "vue", "面试总结"]
 ---
 ## vue生命周期
-先上官方生命周期图![vue2.0生命周期图](/images/2018-12-03/lifecycle.png "vue2.0生命周期图")
+先上官方生命周期图![vue2.0生命周期图](./images/lifecycle.png "vue2.0生命周期图")
 由此可见主要有8个生命周期：`beforeCreate`和`created`,`beforeMount`和`mounted`,`beforeUpdate`和`updated`,`beforeDestory`和`destoryed`。
 
 #### beforeCreate创建前状态

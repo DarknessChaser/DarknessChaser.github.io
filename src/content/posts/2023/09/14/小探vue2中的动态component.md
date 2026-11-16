@@ -8,7 +8,7 @@ tags: ["vue动态组件", "vue2"]
 
 当前vue2项目中存在jsx和template混用的情况。发现可以通过
 
-```HTML
+```html
 <component
     :is="{ render: $slots.default }"
 />

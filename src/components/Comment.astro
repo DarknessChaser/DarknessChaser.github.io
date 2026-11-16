@@ -23,7 +23,7 @@ const enabled = GISCUS.repo !== "" && GISCUS.repoId !== "";
 )}
 
 {enabled && (
-	<script define:vars={{ giscus: GISCUS }}>
+	<script is:inline define:vars={{ giscus: GISCUS }}>
 		(() => {
 			const init = () => {
 				const el = document.getElementById("giscus-container");

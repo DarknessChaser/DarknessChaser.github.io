@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	},
 	banner: {
 		enable: true,
-		src: "/img/custom/home-bg.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "assets/images/home-bg.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
@@ -56,7 +56,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/img/custom/about-my-gentle.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "assets/images/about-my-gentle.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "漆黑菌",
 	bio: "人生梦想之一是和叶绿体整合，这样就可以不吃饭了。",
 	links: [
