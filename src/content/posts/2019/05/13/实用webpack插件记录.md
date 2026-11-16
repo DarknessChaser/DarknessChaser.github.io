@@ -1,7 +1,7 @@
 ---
 title: "实用webpack插件记录"
 published: 2019-05-13
-category: "前端工程化"
+category: "技术文档"
 tags: ["webpack", "webpack插件"]
 ---
 ## webpack-bundle-analyzer

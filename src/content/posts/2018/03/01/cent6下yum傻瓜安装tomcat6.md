@@ -1,7 +1,7 @@
 ---
 title: "cent6下yum傻瓜安装tomcat6"
 published: 2018-03-01
-category: "运维与系统"
+category: "技术文档"
 tags: ["tomcat", "Linux"]
 ---
 ## 安装tomcat6

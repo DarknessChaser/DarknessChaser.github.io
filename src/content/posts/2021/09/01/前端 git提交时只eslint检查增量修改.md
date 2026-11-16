@@ -1,7 +1,7 @@
 ---
 title: "前端git提交时只eslint检查增量修改"
 published: 2021-09-01
-category: "前端工程化"
+category: "技术文档"
 tags: ["git", "vue", "eslint", "vue-cli"]
 ---
 ## 需求背景

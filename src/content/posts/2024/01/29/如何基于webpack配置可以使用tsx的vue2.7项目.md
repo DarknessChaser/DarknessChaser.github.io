@@ -1,7 +1,7 @@
 ---
 title: "如何基于webpack配置可以使用tsx的vue2.7项目"
 published: 2024-01-29
-category: "前端工程化"
+category: "技术文档"
 tags: ["vue2.7", "vue tsx", "webpack"]
 ---
 ## 引入ts支持

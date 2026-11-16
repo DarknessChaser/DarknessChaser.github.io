@@ -1,7 +1,7 @@
 ---
 title: "小探 flex 渲染机制"
 published: 2021-06-01
-category: "CSS 与布局"
+category: "技术文档"
 tags: ["flex", "flex-basis", "flex-basis 与 width"]
 ---
 ## 起因

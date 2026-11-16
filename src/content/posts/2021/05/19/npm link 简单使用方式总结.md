@@ -1,7 +1,7 @@
 ---
 title: "npm link 简单使用方式总结"
 published: 2021-05-19
-category: "开发工具"
+category: "技术文档"
 tags: ["npm", "npm link", "vue 组件本地开发"]
 ---
 ## 目的

@@ -1,7 +1,7 @@
 ---
 title: "把 Claude Code 的代码审查插件搬到 Cursor：多 Agent CR 的实践与踩坑"
 published: 2026-03-06
-category: "AI 工具"
+category: "技术文档"
 tags: ["Claude Code", "Skill", "Cursor"]
 ---
 > 基于 Claude Code 官方 code-review plugin 改造，适配 Cursor Skill 体系，实现多模型并行代码审查。

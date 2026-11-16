@@ -1,7 +1,7 @@
 ---
 title: "灵车指南——如何正确食用NAT网络VPS"
 published: 2018-04-07
-category: "运维与系统"
+category: "技术文档"
 tags: ["hosthongkong", "香港", "NAT", "VPS"]
 ---
 ## 为什么要用NAT？什么是NAT?

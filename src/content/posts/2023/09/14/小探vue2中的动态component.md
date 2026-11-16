@@ -1,7 +1,7 @@
 ---
 title: "小探vue2中的动态组件"
 published: 2023-09-14
-category: "Vue"
+category: "技术文档"
 tags: ["vue动态组件", "vue2"]
 ---
 ## 缘起

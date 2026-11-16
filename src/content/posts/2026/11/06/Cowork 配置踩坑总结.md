@@ -1,7 +1,7 @@
 ---
 title: "Cowork 配置踩坑总结"
 published: 2026-11-06
-category: "AI 工具"
+category: "技术文档"
 tags: ["Cowork"]
 ---
 Claude Desktop Cowork （3P 模式）插件/MCP 配置：

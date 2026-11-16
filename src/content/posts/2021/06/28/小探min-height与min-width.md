@@ -1,7 +1,7 @@
 ---
 title: "小探min-height与min-width"
 published: 2021-06-28
-category: "CSS 与布局"
+category: "技术文档"
 tags: ["min-height", "min-height:0", "aspect-ratio"]
 ---
 ## 起因

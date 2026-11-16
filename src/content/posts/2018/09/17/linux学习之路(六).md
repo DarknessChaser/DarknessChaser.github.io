@@ -1,7 +1,7 @@
 ---
 title: "linux学习之路(六)"
 published: 2018-09-17
-category: "运维与系统"
+category: "技术文档"
 description: "总结一些常用vps脚本"
 tags: ["Linux", "常用脚本"]
 ---

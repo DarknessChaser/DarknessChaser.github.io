@@ -1,7 +1,7 @@
 ---
 title: "vue全家桶配置webpack反代"
 published: 2018-07-26
-category: "前端工程化"
+category: "技术文档"
 tags: ["vue", "混淆", "反代", "webpack"]
 ---
 # vue全家桶配置反代

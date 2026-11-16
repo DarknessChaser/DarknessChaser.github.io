@@ -1,7 +1,7 @@
 ---
 title: "局域网内IP访问本机服务器"
 published: 2018-07-20
-category: "运维与系统"
+category: "技术文档"
 description: "一点IP地址的豆知识"
 tags: ["IP地址", "科学使用", "网络工程"]
 ---

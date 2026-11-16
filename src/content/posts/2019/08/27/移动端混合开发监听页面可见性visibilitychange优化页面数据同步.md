@@ -1,7 +1,7 @@
 ---
 title: "移动端混合开发监听页面可见性visibilitychange优化页面数据同步"
 published: 2019-08-27
-category: "浏览器与 Web API"
+category: "技术文档"
 tags: ["移动端", "visibilitychange", "锁屏", "定时器不准确"]
 ---
 ## 需求背景

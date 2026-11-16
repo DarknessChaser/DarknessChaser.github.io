@@ -1,7 +1,7 @@
 ---
 title: "小探web worker与任务分片"
 published: 2021-07-28
-category: "浏览器与 Web API"
+category: "技术文档"
 tags: ["web worker", "requestIdleCallback"]
 ---
 ## demo

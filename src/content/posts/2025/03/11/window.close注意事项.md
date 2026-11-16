@@ -1,7 +1,7 @@
 ---
 title: "window.close注意事项"
 published: 2025-03-11
-category: "浏览器与 Web API"
+category: "技术文档"
 tags: ["window.close"]
 ---
 ## 现象

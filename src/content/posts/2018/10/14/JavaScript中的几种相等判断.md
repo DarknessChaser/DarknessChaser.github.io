@@ -1,7 +1,7 @@
 ---
 title: "JavaScript中的四种相等判断"
 published: 2018-10-14
-category: "JavaScript"
+category: "技术文档"
 description: "由ES6中Set唯一性判断想到的"
 tags: ["JavaScript相等性判断", "判断相等", "Set", "唯一性"]
 ---

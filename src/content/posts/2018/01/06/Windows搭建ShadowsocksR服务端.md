@@ -1,7 +1,7 @@
 ---
 title: "网上回国——Windows搭建ShadowsocksR服务端"
 published: 2018-01-06
-category: "运维与系统"
+category: "技术文档"
 tags: ["网上回国", "ShadowsocksR"]
 ---
 ## 前言

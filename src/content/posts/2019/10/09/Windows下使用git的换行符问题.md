@@ -1,7 +1,7 @@
 ---
 title: "Windows下使用git的换行符问题"
 published: 2019-10-09
-category: "开发工具"
+category: "技术文档"
 tags: ["Git", "Windows", "换行符", "科学使用"]
 ---
 ## 简介

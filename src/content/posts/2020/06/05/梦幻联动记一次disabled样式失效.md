@@ -1,7 +1,7 @@
 ---
 title: "梦幻联动————记一次disabled样式失效"
 published: 2020-06-05
-category: "CSS 与布局"
+category: "技术文档"
 tags: ["cursor not-allowed 失效", "pointer-events none"]
 ---
 # 现象

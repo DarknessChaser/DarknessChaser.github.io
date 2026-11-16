@@ -1,7 +1,7 @@
 ---
 title: "新手练习建站神器！免费域名+免费CDN"
 published: 2018-03-02
-category: "运维与系统"
+category: "技术文档"
 tags: ["免费域名", "免费CDN", "Freenom", "Cloudflare"]
 ---
 ## 前言

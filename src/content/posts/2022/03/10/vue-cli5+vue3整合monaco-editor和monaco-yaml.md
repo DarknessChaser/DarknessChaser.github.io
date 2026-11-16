@@ -1,7 +1,7 @@
 ---
 title: "vue-cli5+vue3整合monaco-editor和monaco-yaml"
 published: 2022-03-10
-category: "Vue"
+category: "技术文档"
 tags: ["vue3", "vue-cli", "monaco-editor", "monaco-yaml"]
 ---
 # demo项目地址

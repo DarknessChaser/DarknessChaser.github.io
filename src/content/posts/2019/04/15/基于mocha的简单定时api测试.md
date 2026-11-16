@@ -1,7 +1,7 @@
 ---
 title: "基于mocha的简单定时api测试"
 published: 2019-04-15
-category: "前端工程化"
+category: "技术文档"
 tags: ["前端api测试", "mocha", "nodejs", "定时任务"]
 ---
 ## 业务场景描述

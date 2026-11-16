@@ -1,7 +1,7 @@
 ---
 title: "Let's HTTPS！新手入门caddy+tomcat实现HTTPS建站"
 published: 2018-04-03
-category: "运维与系统"
+category: "技术文档"
 tags: ["caddy", "tomcat", "https", "letsencrypt", "nginx"]
 ---
 ## 前言

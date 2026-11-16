@@ -1,7 +1,7 @@
 ---
 title: "一些也许有用的解决node内存不足的方法"
 published: 2022-01-24
-category: "开发工具"
+category: "技术文档"
 tags: ["node", "Windows", "内存不足"]
 ---
 ## 也许的问题

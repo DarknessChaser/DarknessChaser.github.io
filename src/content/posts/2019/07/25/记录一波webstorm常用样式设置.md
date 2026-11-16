@@ -1,7 +1,7 @@
 ---
 title: "记录一波webstorm常用样式设置"
 published: 2019-07-25
-category: "开发工具"
+category: "技术文档"
 tags: ["webstorm样式设置", "科学使用"]
 ---
 ## webstorm常用样式设置

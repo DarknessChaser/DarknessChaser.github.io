@@ -1,7 +1,7 @@
 ---
 title: "写给自己看的品字形布局main右侧内容和左侧滚动联动配置"
 published: 2023-12-05
-category: "CSS 与布局"
+category: "技术文档"
 tags: ["左右粘性布局"]
 ---
 ## 描述

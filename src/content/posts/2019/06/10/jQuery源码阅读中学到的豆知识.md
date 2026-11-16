@@ -1,7 +1,7 @@
 ---
 title: "jQuery源码阅读中学到的豆知识"
 published: 2019-06-10
-category: "JavaScript"
+category: "技术文档"
 tags: ["jQuery源码阅读", "豆知识"]
 ---
 ## 用+号和!号来启动自执行函数

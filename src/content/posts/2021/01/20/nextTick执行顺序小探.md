@@ -1,7 +1,7 @@
 ---
 title: "nextTick执行顺序小探"
 published: 2021-01-20
-category: "Vue"
+category: "技术文档"
 tags: ["vue", "nextTick"]
 ---
 # 缘起

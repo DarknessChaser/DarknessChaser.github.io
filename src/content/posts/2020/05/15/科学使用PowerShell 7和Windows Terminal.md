@@ -1,7 +1,7 @@
 ---
 title: "科学使用PowerShell和Windows Terminal"
 published: 2020-05-15
-category: "开发工具"
+category: "技术文档"
 tags: ["科学使用", "PowerShell", "Windows Terminal", "更新PowerShell", "配置Windows Terminal主题"]
 ---
 # 安装Windows Terminal和PowerShell

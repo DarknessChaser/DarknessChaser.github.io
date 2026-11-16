@@ -1,7 +1,7 @@
 ---
 title: "（转载）maven怎么用"
 published: 2018-04-14
-category: "开发工具"
+category: "技术文档"
 tags: ["maven", "myeclipse"]
 ---
 # 一、Maven常用命令

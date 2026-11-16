@@ -1,7 +1,7 @@
 ---
 title: "另一免费CDN之选incapsula使用教程"
 published: 2018-03-11
-category: "运维与系统"
+category: "技术文档"
 tags: ["免费CDN", "incapsula"]
 ---
 ## 前言

@@ -1,7 +1,7 @@
 ---
 title: "vue老项目升级vue-cli新版模板总结"
 published: 2021-03-25
-category: "前端工程化"
+category: "技术文档"
 tags: ["vue", "vue-cli", "vue-cli升级"]
 ---
 ## 总体思路

@@ -1,7 +1,7 @@
 ---
 title: "快速搭建私有网盘！"
 published: 2018-04-12
-category: "运维与系统"
+category: "技术文档"
 description: "Caddy+AriaNG+Aria2配置HTTPS离线下载网盘"
 tags: ["私有网盘", "Caddy", "AriaNG", "Aria2", "HTTPS"]
 ---

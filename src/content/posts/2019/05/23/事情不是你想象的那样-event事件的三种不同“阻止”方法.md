@@ -1,7 +1,7 @@
 ---
 title: "事情不是你想象的那样"
 published: 2019-05-23
-category: "浏览器与 Web API"
+category: "技术文档"
 description: "event事件的三种不同“阻止”方法"
 tags: ["event事件", "阻止冒泡"]
 ---

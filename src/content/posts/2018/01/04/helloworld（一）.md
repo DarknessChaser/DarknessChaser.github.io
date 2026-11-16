@@ -1,7 +1,7 @@
 ---
 title: "hello world（一）"
 published: 2018-01-04
-category: "生活随笔"
+category: "闲谈"
 tags: ["helloworld", "记录生活"]
 ---
 ## 前言

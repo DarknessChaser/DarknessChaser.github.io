@@ -1,7 +1,7 @@
 ---
 title: "科学使用GitHub"
 published: 2018-07-25
-category: "开发工具"
+category: "技术文档"
 tags: ["科学使用", "网络工程", "GitHub", "代理"]
 ---
 # 起因

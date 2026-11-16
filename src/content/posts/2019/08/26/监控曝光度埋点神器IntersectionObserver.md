@@ -1,7 +1,7 @@
 ---
 title: "监控曝光度埋点神器IntersectionObserver"
 published: 2019-08-26
-category: "浏览器与 Web API"
+category: "技术文档"
 tags: ["曝光埋点", "IntersectionObserver", "swiper插件"]
 ---
 ## 需求背景

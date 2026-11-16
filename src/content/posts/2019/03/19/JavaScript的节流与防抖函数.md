@@ -1,7 +1,7 @@
 ---
 title: "JavaScript的节流与防抖函数"
 published: 2019-03-19
-category: "JavaScript"
+category: "技术文档"
 tags: ["JavaScript", "节流与防抖"]
 ---
 # 防抖

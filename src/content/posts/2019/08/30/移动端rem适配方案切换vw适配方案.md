@@ -1,7 +1,7 @@
 ---
 title: "移动端rem适配方案切换vw适配方案"
 published: 2019-08-30
-category: "CSS 与布局"
+category: "技术文档"
 tags: ["移动端适配", "rem", "vw"]
 ---
 ## 需求背景

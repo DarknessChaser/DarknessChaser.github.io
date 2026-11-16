@@ -1,7 +1,7 @@
 ---
 title: "关于vue的面试总结"
 published: 2018-12-03
-category: "Vue"
+category: "技术文档"
 tags: ["JavaScript", "vue", "面试总结"]
 ---
 ## vue生命周期

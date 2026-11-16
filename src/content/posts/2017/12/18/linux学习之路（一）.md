@@ -1,7 +1,7 @@
 ---
 title: "Linux学习之路（一）"
 published: 2017-12-18
-category: "运维与系统"
+category: "技术文档"
 tags: ["Linux", "iptables", "ssh"]
 ---
 ## 为什么要学Linux

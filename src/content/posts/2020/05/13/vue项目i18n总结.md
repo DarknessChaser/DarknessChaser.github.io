@@ -1,7 +1,7 @@
 ---
 title: "vue项目i18n总结"
 published: 2020-05-13
-category: "Vue"
+category: "技术文档"
 tags: ["vue", "i18n", "vue国际化", "i18n Ally", "vs code插件"]
 ---
 ## 安装i18n依赖
