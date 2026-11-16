@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>标签 · 已迁移</title>
-<link rel="canonical" href="/archive/">
+<link rel="canonical" href="/posts/">
 <meta name="robots" content="noindex">
 <script>
 	// The legacy Jekyll tags page linked to in-page anchors (#tag); the new
-	// archive page filters with ?tag=. Forward whatever we can.
+	// post index filters with ?tag=. Forward whatever we can.
 	(function () {
 		var search = location.search || "";
 		var hash = decodeURIComponent(location.hash.replace(/^#/, ""));
-		var target = "/archive/" + search;
-		if (!search && hash) target = "/archive/?tag=" + encodeURIComponent(hash);
+		var target = "/posts/" + search;
+		if (!search && hash) target = "/posts/?tag=" + encodeURIComponent(hash);
 		location.replace(target);
 	})();
 </script>
-<meta http-equiv="refresh" content="0; url=/archive/">
+<meta http-equiv="refresh" content="0; url=/posts/">
 </head>
 <body>
-<p>标签页已迁移到 <a href="/archive/">归档</a>。</p>
+<p>标签页已迁移到 <a href="/posts/">全部文章</a>。</p>
 </body>
 </html>
