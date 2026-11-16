@@ -4,7 +4,7 @@ import type { Translation } from "../translation";
 export const id: Translation = {
 	[Key.home]: "Beranda",
 	[Key.about]: "Tentang",
-	[Key.archive]: "Arsip",
+	[Key.archive]: "Semua Postingan",
 	[Key.search]: "Cari",
 
 	[Key.tags]: "Tag",

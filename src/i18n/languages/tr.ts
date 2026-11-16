@@ -4,7 +4,7 @@ import type { Translation } from "../translation";
 export const tr: Translation = {
 	[Key.home]: "Anasayfa",
 	[Key.about]: "Hakkında",
-	[Key.archive]: "Arşiv",
+	[Key.archive]: "Tüm Yazılar",
 	[Key.search]: "Ara",
 
 	[Key.tags]: "Taglar",
