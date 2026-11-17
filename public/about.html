@@ -5,6 +5,18 @@
 <title>关于 · 已迁移</title>
 <link rel="canonical" href="/about/">
 <meta name="robots" content="noindex">
+<!--
+	Why this stub lives in public/ instead of being an Astro page:
+
+	The old Jekyll site served the about page at /about.html. Astro's route for
+	src/pages/about.astro is /about/ (trailingSlash: "always"), so it can never
+	produce this exact filename, and anything in public/ is copied to the site
+	root verbatim - which is exactly what a legacy URL needs.
+
+	GitHub Pages is static hosting and cannot send a 301, so the redirect is a
+	zero-delay meta refresh plus a plain link. canonical + noindex keep the stub
+	out of search results so only /about/ gets indexed.
+-->
 <meta http-equiv="refresh" content="0; url=/about/">
 </head>
 <body>

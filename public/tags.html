@@ -5,6 +5,18 @@
 <title>标签 · 已迁移</title>
 <link rel="canonical" href="/posts/">
 <meta name="robots" content="noindex">
+<!--
+	Why this stub lives in public/ instead of being an Astro page:
+
+	The old Jekyll site served the tag list at /tags.html. Astro's route for
+	src/pages/posts.astro is /posts/, so it can never produce this exact
+	filename, and anything in public/ is copied to the site root verbatim,
+	which is exactly what a legacy URL needs.
+
+	GitHub Pages is static hosting and cannot send a 301, so the redirect is a
+	zero-delay meta refresh plus a plain link. canonical + noindex keep the stub
+	out of search results so only /posts/ gets indexed.
+-->
 <script>
 	// The legacy Jekyll tags page linked to in-page anchors (#tag); the new
 	// post index filters with ?tag=. Forward whatever we can.
