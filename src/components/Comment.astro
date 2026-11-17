@@ -5,10 +5,10 @@
  * The widget simply does not render until `repo` is configured.
  */
 const GISCUS = {
-	repo: "", // e.g. "DarknessChaser/DarknessChaser.github.io"
-	repoId: "", // from giscus.app
+	repo: "DarknessChaser/DarknessChaser.github.io", // e.g. "DarknessChaser/DarknessChaser.github.io"
+	repoId: "MDEwOlJlcG9zaXRvcnkxMTQ0NDA5OTg=", // from giscus.app
 	category: "Announcements",
-	categoryId: "", // from giscus.app
+	categoryId: "DIC_kwDOBtI7Js4DLXFE", // from giscus.app
 	mapping: "pathname",
 	lang: "zh-CN",
 };
@@ -35,7 +35,7 @@ const enabled = GISCUS.repo !== "" && GISCUS.repoId !== "";
 				s.setAttribute("data-category", giscus.category);
 				s.setAttribute("data-category-id", giscus.categoryId);
 				s.setAttribute("data-mapping", giscus.mapping);
-				s.setAttribute("data-strict", "0");
+				s.setAttribute("data-strict", "1");
 				s.setAttribute("data-reactions-enabled", "1");
 				s.setAttribute("data-emit-metadata", "0");
 				s.setAttribute("data-input-position", "top");
