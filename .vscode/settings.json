@@ -18,5 +18,5 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
-  "frontMatter.dashboard.openOnStart": false
+  "i18n-ally.localesPaths": ["src/i18n", "src/i18n/languages"]
 }
