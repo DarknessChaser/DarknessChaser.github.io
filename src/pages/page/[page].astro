@@ -1,11 +1,16 @@
 ---
+import type { PaginateFunction } from "astro";
 import Pagination from "../../components/control/Pagination.astro";
 import PostPage from "../../components/PostPage.astro";
 import { PAGE_SIZE } from "../../constants/constants";
 import MainGridLayout from "../../layouts/MainGridLayout.astro";
 import { getSortedPosts } from "../../utils/content-utils";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({
+	paginate,
+}: {
+	paginate: PaginateFunction;
+}) {
 	const allBlogPosts = await getSortedPosts();
 	// pages 2+ live under /page/N/ (legacy Jekyll paginate structure)
 	return paginate(allBlogPosts, { pageSize: PAGE_SIZE }).slice(1);
