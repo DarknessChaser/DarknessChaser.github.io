@@ -9,6 +9,6 @@ const sortedPostsList = await getSortedPostsList();
 ---
 
 <MainGridLayout title={i18n(I18nKey.allPosts)}>
-    <PostIndexPanel sortedPosts={sortedPostsList} client:only="svelte"></PostIndexPanel>
+    <PostIndexPanel sortedPosts={sortedPostsList} client:load></PostIndexPanel>
 </MainGridLayout>
 

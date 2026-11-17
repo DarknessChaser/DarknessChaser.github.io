@@ -13,65 +13,93 @@ interface Group {
 	posts: PostForList[];
 }
 
-let groups: Group[] = [];
+interface Filters {
+	tags: string[];
+	categories: string[];
+	uncategorized: boolean;
+}
+
+function readFilters(): Filters {
+	const params = new URLSearchParams(window.location.search);
+	return {
+		tags: params.getAll("tag"),
+		categories: params.getAll("category"),
+		uncategorized: params.get("uncategorized") !== null,
+	};
+}
+
+function applyFilters(posts: PostForList[], filters: Filters): PostForList[] {
+	let filtered = posts;
+
+	if (filters.tags.length > 0) {
+		filtered = filtered.filter(
+			(post) =>
+				Array.isArray(post.data.tags) &&
+				post.data.tags.some((tag) => filters.tags.includes(tag)),
+		);
+	}
+
+	if (filters.categories.length > 0) {
+		filtered = filtered.filter(
+			(post) =>
+				post.data.category && filters.categories.includes(post.data.category),
+		);
+	}
+
+	if (filters.uncategorized) {
+		filtered = filtered.filter((post) => !post.data.category);
+	}
+
+	return filtered;
+}
+
+// Front matter dates are UTC midnights, so read them in UTC as well; otherwise
+// the build machine and the visitor's timezone could disagree about a post's
+// year (and the SSR markup would not match the hydrated markup).
+function groupByYear(posts: PostForList[]): Group[] {
+	const grouped = new Map<number, PostForList[]>();
+
+	for (const post of posts) {
+		const year = post.data.published.getUTCFullYear();
+		const bucket = grouped.get(year);
+		if (bucket) {
+			bucket.push(post);
+		} else {
+			grouped.set(year, [post]);
+		}
+	}
+
+	return Array.from(grouped, ([year, list]) => ({ year, posts: list })).sort(
+		(a, b) => b.year - a.year,
+	);
+}
+
+// Render the complete archive at build time so the page works without JS and
+// crawlers can see every post; the query string only narrows it down once the
+// island hydrates.
+let groups = groupByYear(sortedPosts);
+
+onMount(() => {
+	const filters = readFilters();
+	if (
+		filters.tags.length === 0 &&
+		filters.categories.length === 0 &&
+		!filters.uncategorized
+	) {
+		return;
+	}
+	groups = groupByYear(applyFilters(sortedPosts, filters));
+});
 
 function formatDate(date: Date) {
-	const month = (date.getMonth() + 1).toString().padStart(2, "0");
-	const day = date.getDate().toString().padStart(2, "0");
+	const month = (date.getUTCMonth() + 1).toString().padStart(2, "0");
+	const day = date.getUTCDate().toString().padStart(2, "0");
 	return `${month}-${day}`;
 }
 
 function formatTag(tagList: string[]) {
 	return tagList.map((t) => `#${t}`).join(" ");
 }
-
-onMount(async () => {
-	const params = new URLSearchParams(window.location.search);
-	const tags = params.getAll("tag");
-	const categories = params.getAll("category");
-	const uncategorized = params.get("uncategorized");
-
-	let filteredPosts: PostForList[] = sortedPosts;
-
-	if (tags.length > 0) {
-		filteredPosts = filteredPosts.filter(
-			(post) =>
-				Array.isArray(post.data.tags) &&
-				post.data.tags.some((tag) => tags.includes(tag)),
-		);
-	}
-
-	if (categories.length > 0) {
-		filteredPosts = filteredPosts.filter(
-			(post) => post.data.category && categories.includes(post.data.category),
-		);
-	}
-
-	if (uncategorized) {
-		filteredPosts = filteredPosts.filter((post) => !post.data.category);
-	}
-
-	const grouped = filteredPosts.reduce(
-		(acc, post) => {
-			const year = post.data.published.getFullYear();
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(post);
-			return acc;
-		},
-		{} as Record<number, PostForList[]>,
-	);
-
-	const groupedPostsArray = Object.keys(grouped).map((yearStr) => ({
-		year: Number.parseInt(yearStr, 10),
-		posts: grouped[Number.parseInt(yearStr, 10)],
-	}));
-
-	groupedPostsArray.sort((a, b) => b.year - a.year);
-
-	groups = groupedPostsArray;
-});
 </script>
 
 <div class="card-base px-8 py-6">
