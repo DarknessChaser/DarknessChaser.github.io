@@ -20,6 +20,13 @@ import type { Favicon } from "../types/config";
 import { pathsEqual, url } from "../utils/url-utils";
 import "katex/dist/katex.css";
 
+// Global styles. Imported through single entry points so the cascade order is
+// deterministic: these stylesheets used to reach the bundle by accident through
+// ImageWrapper's "src/**" image glob, and the order they were applied in
+// depended on module loading. app.styl declares the theme custom properties.
+import "../styles/app.styl";
+import "../styles/app.css";
+
 interface Props {
 	title?: string;
 	banner?: string;

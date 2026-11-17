@@ -1,0 +1,9 @@
+/* Stylus entry point for the site's variables and markdown extensions.
+ *
+ * Vite compiles .styl files through the Stylus preprocessor, so anything
+ * imported here ends up in the bundled stylesheet. This is the only place that
+ * pulls in variables.styl, which declares the theme custom properties
+ * (--primary, --card-bg, --radius-large, …) that every other stylesheet uses.
+ */
+@import "./variables.styl"
+@import "./markdown-extend.styl"

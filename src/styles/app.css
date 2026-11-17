@@ -1,0 +1,15 @@
+/* Single entry point for the site's stylesheets.
+ *
+ * They are @import-ed instead of imported separately from Layout.astro so that
+ * postcss-import flattens them into one stylesheet before Tailwind runs. That
+ * guarantees main.css (which declares .link, .card-base, .expand-animation, …)
+ * is seen before markdown.css @applies those classes; importing the files
+ * individually left the order up to module loading and sometimes failed with
+ * "The `link` class does not exist".
+ */
+@import "./main.css";
+@import "./markdown.css";
+@import "./transition.css";
+@import "./scrollbar.css";
+@import "./photoswipe.css";
+@import "./expressive-code.css";

@@ -14,7 +14,14 @@ interface Props {
 import { Image } from "astro:assets";
 import { url } from "../../utils/url-utils";
 
-const { id, src, alt, position = "center", basePath = "/", loading } = Astro.props;
+const {
+	id,
+	src,
+	alt,
+	position = "center",
+	basePath = "/",
+	loading,
+} = Astro.props;
 const className = Astro.props.class;
 
 const isLocal = !(
@@ -27,16 +34,21 @@ const isPublic = src.startsWith("/");
 
 // TODO temporary workaround for images dynamic import
 // https://github.com/withastro/astro/issues/3373
+// Keep the glob to image files only: globbing all of src/ used to pull
+// stylesheets into the module graph as well, which made the output CSS order
+// (and therefore Tailwind's @apply of custom classes) non-deterministic.
+const imageModules = import.meta.glob<ImageMetadata>(
+	"../../**/*.{jpg,jpeg,png,gif,webp,avif,svg}",
+	{ import: "default" },
+);
+
 // biome-ignore lint/suspicious/noImplicitAnyLet: <check later>
 let img;
 if (isLocal) {
-	const files = import.meta.glob<ImageMetadata>("../../**", {
-		import: "default",
-	});
-	let normalizedPath = path
+	const normalizedPath = path
 		.normalize(path.join("../../", basePath, src))
 		.replace(/\\/g, "/");
-	const file = files[normalizedPath];
+	const file = imageModules[normalizedPath];
 	if (!file) {
 		console.error(
 			`\n[ERROR] Image file not found: ${normalizedPath.replace("../../", "src/")}`,
