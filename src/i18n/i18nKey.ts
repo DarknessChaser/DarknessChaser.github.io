@@ -4,6 +4,9 @@ enum I18nKey {
 	allPosts = "allPosts",
 	search = "search",
 
+	notFound = "notFound",
+	notFoundDescription = "notFoundDescription",
+
 	tags = "tags",
 	categories = "categories",
 	recentPosts = "recentPosts",

@@ -7,6 +7,10 @@ export const zh_TW: Translation = {
 	[Key.allPosts]: "全部文章",
 	[Key.search]: "搜尋",
 
+	[Key.notFound]: "頁面不存在",
+	[Key.notFoundDescription]:
+		"這個位址下沒有內容，可能是連結寫錯了，也可能頁面已經搬走了。",
+
 	[Key.tags]: "標籤",
 	[Key.categories]: "分類",
 	[Key.recentPosts]: "最新文章",

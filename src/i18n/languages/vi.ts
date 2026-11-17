@@ -7,6 +7,10 @@ export const vi: Translation = {
 	[Key.allPosts]: "Tất cả bài viết",
 	[Key.search]: "Tìm kiếm",
 
+	[Key.notFound]: "Không tìm thấy trang",
+	[Key.notFoundDescription]:
+		"Không có nội dung ở địa chỉ này. Có thể liên kết bị gõ sai hoặc trang đã được chuyển đi.",
+
 	[Key.tags]: "Thẻ",
 	[Key.categories]: "Danh mục",
 	[Key.recentPosts]: "Bài viết mới nhất",

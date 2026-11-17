@@ -1,0 +1,31 @@
+---
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { url } from "../utils/url-utils";
+
+// GitHub Pages serves this as /404.html for every unknown path, so it is a
+// normal static page rather than a route.
+const title = i18n(I18nKey.notFound);
+const description = i18n(I18nKey.notFoundDescription);
+---
+
+<MainGridLayout title={title} description={description}>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-12 relative w-full flex flex-col items-center text-center">
+            <div class="transition text-[6rem] md:text-[8rem] leading-none font-bold text-[var(--primary)] select-none">
+                404
+            </div>
+            <h1 class="transition text-2xl font-bold mt-4">{title}</h1>
+            <p class="transition text-75 mt-3 max-w-[28rem]">{description}</p>
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <a href={url("/")} class="btn-regular h-10 px-5 rounded-lg text-sm font-bold">
+                    {i18n(I18nKey.home)}
+                </a>
+                <a href={url("/posts/")} class="btn-plain h-10 px-5 rounded-lg text-sm font-bold">
+                    {i18n(I18nKey.allPosts)}
+                </a>
+            </div>
+        </div>
+    </div>
+</MainGridLayout>

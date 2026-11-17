@@ -7,6 +7,10 @@ export const zh_CN: Translation = {
 	[Key.allPosts]: "全部文章",
 	[Key.search]: "搜索",
 
+	[Key.notFound]: "页面不存在",
+	[Key.notFoundDescription]:
+		"这个地址下没有内容，可能是链接写错了，也可能页面已经搬走了。",
+
 	[Key.tags]: "标签",
 	[Key.categories]: "分类",
 	[Key.recentPosts]: "最新文章",

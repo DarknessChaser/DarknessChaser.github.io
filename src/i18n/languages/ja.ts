@@ -7,6 +7,10 @@ export const ja: Translation = {
 	[Key.allPosts]: "すべての記事",
 	[Key.search]: "検索",
 
+	[Key.notFound]: "ページが見つかりません",
+	[Key.notFoundDescription]:
+		"このアドレスにページはありません。リンクが間違っているか、ページが移動した可能性があります。",
+
 	[Key.tags]: "タグ",
 	[Key.categories]: "カテゴリ",
 	[Key.recentPosts]: "最近の投稿",

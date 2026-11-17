@@ -7,6 +7,9 @@ export const th: Translation = {
 	[Key.allPosts]: "บทความทั้งหมด",
 	[Key.search]: "ค้นหา",
 
+	[Key.notFound]: "ไม่พบหน้านี้",
+	[Key.notFoundDescription]: "ไม่พบเนื้อหาในที่อยู่นี้ ลิงก์อาจพิมพ์ผิดหรือหน้าย้ายไปแล้ว",
+
 	[Key.tags]: "ป้ายกำกับ",
 	[Key.categories]: "หมวดหมู่",
 	[Key.recentPosts]: "โพสต์ล่าสุด",

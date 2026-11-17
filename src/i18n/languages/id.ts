@@ -7,6 +7,10 @@ export const id: Translation = {
 	[Key.allPosts]: "Semua Postingan",
 	[Key.search]: "Cari",
 
+	[Key.notFound]: "Halaman tidak ditemukan",
+	[Key.notFoundDescription]:
+		"Tidak ada apa pun di alamat ini. Tautannya mungkin salah ketik atau halamannya sudah dipindahkan.",
+
 	[Key.tags]: "Tag",
 	[Key.categories]: "Kategori",
 	[Key.recentPosts]: "Postingan Terbaru",

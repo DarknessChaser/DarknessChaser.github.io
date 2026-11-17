@@ -7,6 +7,10 @@ export const es: Translation = {
 	[Key.allPosts]: "Todas las entradas",
 	[Key.search]: "Buscar",
 
+	[Key.notFound]: "Página no encontrada",
+	[Key.notFoundDescription]:
+		"No hay nada en esta dirección. Puede que el enlace esté mal escrito o que la página se haya movido.",
+
 	[Key.tags]: "Etiquetas",
 	[Key.categories]: "Categorías",
 	[Key.recentPosts]: "Publicaciones recientes",

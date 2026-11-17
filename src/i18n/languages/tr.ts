@@ -7,6 +7,10 @@ export const tr: Translation = {
 	[Key.allPosts]: "Tüm Yazılar",
 	[Key.search]: "Ara",
 
+	[Key.notFound]: "Sayfa bulunamadı",
+	[Key.notFoundDescription]:
+		"Bu adreste hiçbir şey yok. Bağlantı yanlış yazılmış veya sayfa taşınmış olabilir.",
+
 	[Key.tags]: "Taglar",
 	[Key.categories]: "Katagoriler",
 	[Key.recentPosts]: "Son Paylaşımlar",

@@ -7,6 +7,10 @@ export const ko: Translation = {
 	[Key.allPosts]: "전체 글",
 	[Key.search]: "검색",
 
+	[Key.notFound]: "페이지를 찾을 수 없습니다",
+	[Key.notFoundDescription]:
+		"이 주소에는 아무 내용도 없습니다. 링크가 잘못되었거나 페이지가 이동했을 수 있습니다.",
+
 	[Key.tags]: "태그",
 	[Key.categories]: "카테고리",
 	[Key.recentPosts]: "최근 게시물",
