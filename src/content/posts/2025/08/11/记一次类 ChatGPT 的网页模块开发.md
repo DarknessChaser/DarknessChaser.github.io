@@ -1,5 +1,6 @@
 ---
 title: "记一次类 ChatGPT 的网页模块开发"
+description: "用 axios 实现 SSE 流式输出、断点续传与降级轮询的实践"
 published: 2025-08-11
 category: "技术文档"
 tags: ["ChatGPT", "SSE", "流式渲染"]

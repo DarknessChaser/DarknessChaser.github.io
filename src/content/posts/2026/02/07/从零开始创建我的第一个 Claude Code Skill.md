@@ -1,5 +1,6 @@
 ---
 title: "从零开始创建我的第一个 Claude Code Skill"
+description: "从零做一个用 Claude Code 分析自身 API 费用的 Skill"
 published: 2026-02-07
 category: "技术文档"
 tags: ["Claude Code", "Skill"]

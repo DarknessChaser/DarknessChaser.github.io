@@ -1,5 +1,6 @@
 ---
 title: "hello world（一）"
+description: "借Google Earth回顾十年间住过的几处家和童年公园"
 published: 2018-01-04
 category: "闲谈"
 tags: ["helloworld", "记录生活"]

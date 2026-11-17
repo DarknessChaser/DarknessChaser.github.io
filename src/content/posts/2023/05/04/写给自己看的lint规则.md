@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的lint规则"
+description: "vue-cli+Airbnb+TypeScript项目的eslint与stylelint规则备忘"
 published: 2023-05-04
 category: "技术文档"
 tags: ["lint"]

@@ -1,5 +1,6 @@
 ---
 title: "使用html-webpack-inline-source-plugin把js和css全部输出到单个HTML页面"
+description: "vue-cli多页面构建+内联插件把js和css打包进单个HTML"
 published: 2020-11-27
 category: "技术文档"
 tags: ["webpack", "html-webpack-inline-source-plugin", "vue-cli", "inline-js", "inline-css"]

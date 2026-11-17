@@ -1,5 +1,6 @@
 ---
 title: "window.close注意事项"
+description: "window.close 在无痕模式下被拦截的原因与限制条件"
 published: 2025-03-11
 category: "技术文档"
 tags: ["window.close"]

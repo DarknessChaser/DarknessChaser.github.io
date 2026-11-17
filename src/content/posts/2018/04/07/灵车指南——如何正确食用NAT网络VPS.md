@@ -1,5 +1,6 @@
 ---
 title: "灵车指南——如何正确食用NAT网络VPS"
+description: "NAT VPS共享IP原理与SSH端口推算登录方法"
 published: 2018-04-07
 category: "技术文档"
 tags: ["hosthongkong", "香港", "NAT", "VPS"]

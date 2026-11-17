@@ -1,5 +1,6 @@
 ---
 title: "兄弟选择器配合flex-reverse实现连线hover效果"
+description: "用flex-reverse反转dom顺序，让兄弟选择器实现向上影响的hover"
 published: 2020-11-22
 category: "技术文档"
 tags: ["css", "pointer-events", "css兄弟选择器", "flex-flow reverse"]

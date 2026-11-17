@@ -1,5 +1,6 @@
 ---
 title: "实用webpack插件记录"
+description: "webpack-bundle-analyzer与ip等插件的用途与配置"
 published: 2019-05-13
 category: "技术文档"
 tags: ["webpack", "webpack插件"]

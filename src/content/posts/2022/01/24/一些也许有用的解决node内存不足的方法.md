@@ -1,5 +1,6 @@
 ---
 title: "一些也许有用的解决node内存不足的方法"
+description: "设置max_old_space_size解决node内存不足的几种方式"
 published: 2022-01-24
 category: "技术文档"
 tags: ["node", "Windows", "内存不足"]

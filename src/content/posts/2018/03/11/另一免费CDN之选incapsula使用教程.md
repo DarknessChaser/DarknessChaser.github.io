@@ -1,5 +1,6 @@
 ---
 title: "另一免费CDN之选incapsula使用教程"
+description: "注册incapsula免费CDN并接入网站，与cloudflare测速对比"
 published: 2018-03-11
 category: "技术文档"
 tags: ["免费CDN", "incapsula"]

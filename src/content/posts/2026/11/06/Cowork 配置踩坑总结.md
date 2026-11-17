@@ -1,5 +1,6 @@
 ---
 title: "Cowork 配置踩坑总结"
+description: "Claude Desktop Cowork 插件与 MCP 连接的排查思路"
 published: 2026-11-06
 category: "技术文档"
 tags: ["Cowork"]

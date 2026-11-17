@@ -1,5 +1,6 @@
 ---
 title: "事情不是你想象的那样-在chrome下操作cookie时的一些问题"
+description: "chrome下cookie跨端口与协议共享及localhost写入的坑"
 published: 2019-09-17
 category: "技术文档"
 tags: ["chrome", "cookie", "localhost", "跨域", "js-cookie"]

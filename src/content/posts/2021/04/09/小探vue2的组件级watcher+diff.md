@@ -1,5 +1,6 @@
 ---
 title: "小探vue2的组件级watcher+diff"
+description: "对比vue1细粒度watcher和vue2组件级watcher+vdom的取舍"
 published: 2021-04-09
 category: "技术文档"
 tags: ["vue diff", "vue vdom", "vue watcher"]

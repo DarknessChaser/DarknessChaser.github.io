@@ -1,5 +1,6 @@
 ---
 title: "vue项目i18n总结"
+description: "vue项目配置vue-i18n和i18n Ally插件及翻译文件懒加载"
 published: 2020-05-13
 category: "技术文档"
 tags: ["vue", "i18n", "vue国际化", "i18n Ally", "vs code插件"]

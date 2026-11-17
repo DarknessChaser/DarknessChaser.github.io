@@ -1,5 +1,6 @@
 ---
 title: "本地化基于jekyll博客系统的一点小小经验"
+description: "GitHub Pages博客模板汉化、日期格式修改与图床、编辑器选择经验"
 published: 2017-12-17
 category: "技术文档"
 tags: ["jekyll"]

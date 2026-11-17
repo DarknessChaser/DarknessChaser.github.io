@@ -1,5 +1,6 @@
 ---
 title: "监控曝光度埋点神器IntersectionObserver"
+description: "用IntersectionObserver统计元素曝光并避免重复上报"
 published: 2019-08-26
 category: "技术文档"
 tags: ["曝光埋点", "IntersectionObserver", "swiper插件"]

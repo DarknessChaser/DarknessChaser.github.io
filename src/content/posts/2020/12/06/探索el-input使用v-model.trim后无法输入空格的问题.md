@@ -1,5 +1,6 @@
 ---
 title: "探索el-input使用v-model.trim后无法输入空格的问题"
+description: "v-model.trim与el-input同步机制冲突导致无法输入空格"
 published: 2020-12-06
 category: "技术文档"
 tags: ["element-ui", "el-input", "trim", "无法输入空格"]

@@ -1,5 +1,6 @@
 ---
 title: "小探vue2中的$attrs是如何生成的"
+description: "vue2中未声明props如何被提取进$attrs的源码分析"
 published: 2023-10-12
 category: "技术文档"
 tags: ["vue $attrs", "vue2"]

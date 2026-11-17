@@ -1,5 +1,6 @@
 ---
 title: "写给自己看快速reset css代码片段"
+description: "button、input number 等控件的 reset css 写法"
 published: 2023-12-08
 category: "技术文档"
 tags: ["reset css", "代码片段"]

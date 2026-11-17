@@ -1,5 +1,6 @@
 ---
 title: "vue全家桶配置webpack反代"
+description: "vue全家桶中proxyTable反代与socket.io ws转发配置"
 published: 2018-07-26
 category: "技术文档"
 tags: ["vue", "混淆", "反代", "webpack"]

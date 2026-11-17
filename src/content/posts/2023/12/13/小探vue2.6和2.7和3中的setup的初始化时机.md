@@ -1,5 +1,6 @@
 ---
 title: "小探vue2.6和2.7和3中的setup的初始化时机"
+description: "vue2.6、2.7 与 vue3 中 setup 初始化时机的差异"
 published: 2023-12-13
 category: "技术文档"
 tags: ["vue setup", "vue2.6", "vue2.7", "vue3"]

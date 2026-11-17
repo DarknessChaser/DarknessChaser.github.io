@@ -1,5 +1,6 @@
 ---
 title: "新手练习建站神器！免费域名+免费CDN"
+description: "Freenom免费域名搭配Cloudflare CDN的建站流程"
 published: 2018-03-02
 category: "技术文档"
 tags: ["免费域名", "免费CDN", "Freenom", "Cloudflare"]

@@ -1,5 +1,6 @@
 ---
 title: "关于vue的面试总结"
+description: "梳理vue2生命周期钩子与scoped、箭头函数等杂项考点"
 published: 2018-12-03
 category: "技术文档"
 tags: ["JavaScript", "vue", "面试总结"]

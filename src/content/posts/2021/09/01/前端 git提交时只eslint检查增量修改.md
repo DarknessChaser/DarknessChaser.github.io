@@ -1,5 +1,6 @@
 ---
 title: "前端git提交时只eslint检查增量修改"
+description: "用husky+lint-staged只对暂存区改动做eslint检查和自动修复"
 published: 2021-09-01
 category: "技术文档"
 tags: ["Git", "vue", "eslint", "vue-cli"]

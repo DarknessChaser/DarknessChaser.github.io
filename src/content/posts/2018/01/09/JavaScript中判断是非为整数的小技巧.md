@@ -1,5 +1,6 @@
 ---
 title: "JavaScript中判断是非为整数的小技巧"
+description: "五种判断整数的方法对比：取余、Math.floor、位运算等"
 published: 2018-01-09
 category: "技术文档"
 tags: ["JavaScript", "判断是非为整数"]

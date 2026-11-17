@@ -1,5 +1,6 @@
 ---
 title: "cent6下傻瓜式配置开机启动"
+description: "用chkconfig与rc.local两种方式配置CentOS开机自启动"
 published: 2018-03-02
 category: "技术文档"
 tags: ["开机启动", "Linux"]

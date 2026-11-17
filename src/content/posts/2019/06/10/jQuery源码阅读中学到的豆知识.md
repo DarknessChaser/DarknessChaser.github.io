@@ -1,5 +1,6 @@
 ---
 title: "jQuery源码阅读中学到的豆知识"
+description: "从jQuery源码中整理出的js小技巧与实现原理"
 published: 2019-06-10
 category: "技术文档"
 tags: ["jQuery源码阅读", "豆知识"]

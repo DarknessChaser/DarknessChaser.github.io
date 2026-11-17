@@ -1,5 +1,6 @@
 ---
 title: "使用axios半自动控制图片加载"
+description: "用axios以arraybuffer绕过缓存加载头像并转成base64"
 published: 2020-05-18
 category: "技术文档"
 tags: ["axios", "加载图片", "Ajax"]

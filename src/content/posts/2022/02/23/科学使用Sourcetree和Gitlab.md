@@ -1,5 +1,6 @@
 ---
 title: "科学使用Sourcetree和Gitlab"
+description: "Gitlab禁用密码登录后，用SSH密钥让Sourcetree正常访问仓库"
 published: 2022-02-23
 category: "技术文档"
 tags: ["科学使用", "Gitlab", "Sourcetree"]

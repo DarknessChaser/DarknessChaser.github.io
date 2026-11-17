@@ -1,5 +1,6 @@
 ---
 title: "解决新版Infinity无法修改天气中的所在城市的脚本"
+description: "在控制台粘贴执行即可修改Infinity天气城市的JS脚本"
 published: 2018-01-24
 category: "技术文档"
 tags: ["JavaScript", "Infinity"]

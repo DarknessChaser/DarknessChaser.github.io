@@ -1,5 +1,6 @@
 ---
 title: "vue老项目升级vue-cli新版模板总结"
+description: "升级vue-cli新版模板时环境变量、入口、webpack配置与依赖的改动"
 published: 2021-03-25
 category: "技术文档"
 tags: ["vue", "vue-cli", "vue-cli升级"]

@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的postcss-preset-env配置攻略"
+description: "postcss-preset-env降级has选择器时启用有副作用插件的方法"
 published: 2023-05-04
 category: "技术文档"
 tags: ["postcss-preset-env"]

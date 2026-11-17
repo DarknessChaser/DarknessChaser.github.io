@@ -1,5 +1,6 @@
 ---
 title: "利用shared worker实现浏览器关闭全部tab后登出用户"
+description: "通过SharedWorker共享内存判断是否为首个tab，实现关闭全部标签页后登出"
 published: 2022-11-13
 category: "技术文档"
 tags: ["shared worker", "关闭全部tab后登出用户"]

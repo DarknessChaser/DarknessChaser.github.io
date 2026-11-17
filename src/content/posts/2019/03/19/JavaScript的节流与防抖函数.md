@@ -1,5 +1,6 @@
 ---
 title: "JavaScript的节流与防抖函数"
+description: "用定时器和闭包实现防抖与节流的两种代码写法"
 published: 2019-03-19
 category: "技术文档"
 tags: ["JavaScript", "节流与防抖"]

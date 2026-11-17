@@ -1,5 +1,6 @@
 ---
 title: "新版chrome使用新版安卓媒体选择器处理HEIC问题记录and如何科学处理移动端HEIC图片"
+description: "chrome新版安卓图片选择器accept失效与各浏览器HEIC选图行为对比"
 published: 2023-09-15
 category: "技术文档"
 tags: ["chrome HEIC bug", "HEIC"]

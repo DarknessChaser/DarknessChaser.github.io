@@ -1,5 +1,6 @@
 ---
 title: "小探vue2中的动态组件"
+description: "vue2中向component的is传入render函数渲染jsx组件的原理"
 published: 2023-09-14
 category: "技术文档"
 tags: ["vue动态组件", "vue2"]

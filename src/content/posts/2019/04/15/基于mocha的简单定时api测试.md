@@ -1,5 +1,6 @@
 ---
 title: "基于mocha的简单定时api测试"
+description: "node-schedule定时执行mocha+supertest接口测试"
 published: 2019-04-15
 category: "技术文档"
 tags: ["前端api测试", "mocha", "nodejs", "定时任务"]

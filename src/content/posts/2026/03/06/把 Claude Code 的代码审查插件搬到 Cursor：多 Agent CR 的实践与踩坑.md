@@ -1,5 +1,6 @@
 ---
 title: "把 Claude Code 的代码审查插件搬到 Cursor：多 Agent CR 的实践与踩坑"
+description: "把 code-review 改造成 Cursor 的多 Agent 审查实践"
 published: 2026-03-06
 category: "技术文档"
 tags: ["Claude Code", "Skill", "Cursor"]

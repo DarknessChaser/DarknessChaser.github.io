@@ -1,5 +1,6 @@
 ---
 title: "小探min-height与min-width"
+description: "min-height为auto时撑大aspect-ratio的原因与验证"
 published: 2021-06-28
 category: "技术文档"
 tags: ["min-height", "min-height:0", "aspect-ratio"]

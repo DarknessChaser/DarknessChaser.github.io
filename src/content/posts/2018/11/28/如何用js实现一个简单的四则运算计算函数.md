@@ -1,5 +1,6 @@
 ---
 title: "如何用js实现一个简单的四则运算计算函数"
+description: "用递归和循环两种思路解析含括号的四则运算表达式"
 published: 2018-11-28
 category: "技术文档"
 tags: ["JavaScript", "字符串", "计算器", "四则运算", "面试总结"]

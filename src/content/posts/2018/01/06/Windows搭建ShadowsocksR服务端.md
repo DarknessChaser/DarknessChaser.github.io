@@ -1,5 +1,6 @@
 ---
 title: "网上回国——Windows搭建ShadowsocksR服务端"
+description: "在阿里云Windows服务器上装SSR服务端，远程回国访问国内服务"
 published: 2018-01-06
 category: "技术文档"
 tags: ["网上回国", "ShadowsocksR"]

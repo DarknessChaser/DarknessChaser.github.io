@@ -1,5 +1,6 @@
 ---
 title: "JavaScript中的浅拷贝和深拷贝"
+description: "JavaScript浅拷贝与深拷贝的区别及手写实现"
 published: 2018-11-13
 category: "技术文档"
 tags: ["JavaScript", "深拷贝", "浅拷贝", "面试总结"]

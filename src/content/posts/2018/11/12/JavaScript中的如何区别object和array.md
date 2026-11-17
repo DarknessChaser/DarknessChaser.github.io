@@ -1,5 +1,6 @@
 ---
 title: "JavaScript中的如何区别object和array"
+description: "判断JavaScript中object与array的多种方法及原理"
 published: 2018-11-12
 category: "技术文档"
 tags: ["JavaScript判断object和array", "面试总结"]

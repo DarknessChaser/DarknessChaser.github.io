@@ -1,5 +1,6 @@
 ---
 title: "js魔法——如何让a==1&&a==2&&a==3为true"
+description: "valueOf、defineProperty和Proxy三种解法让等式成立"
 published: 2019-10-12
 category: "技术文档"
 tags: ["a==1&&a==2&&a==3", "js", "面试题", "JavaScript"]

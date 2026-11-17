@@ -1,5 +1,6 @@
 ---
 title: "小探vue2中为什么使用transition过渡元素时，元素不能show和key同时存在"
+description: "vue2中transition包裹元素同时使用v-show和key导致元素消失的原因"
 published: 2023-12-01
 category: "技术文档"
 tags: ["vue transition", "vue2"]

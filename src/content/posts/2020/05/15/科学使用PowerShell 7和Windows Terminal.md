@@ -1,5 +1,6 @@
 ---
 title: "科学使用PowerShell和Windows Terminal"
+description: "安装新版PowerShell、处理多版本共存并美化终端配色"
 published: 2020-05-15
 category: "技术文档"
 tags: ["科学使用", "PowerShell", "Windows Terminal", "更新PowerShell", "配置Windows Terminal主题"]

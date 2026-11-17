@@ -1,5 +1,6 @@
 ---
 title: "小探vue中的$slots和$scopedSlots"
+description: "vue2.6、2.7 用 $scopedSlots，vue3 改用 $slots"
 published: 2023-12-13
 category: "技术文档"
 tags: ["vue $slots", "vue $scopedSlots", "vue2.6", "vue2.7", "vue3"]

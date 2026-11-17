@@ -1,5 +1,6 @@
 ---
 title: "qiankun webpack-hot-reload 失效"
+description: "qiankun子应用dev server复杂CORS配置导致hot reload失效的排查"
 published: 2022-06-06
 category: "技术文档"
 tags: ["qiankun", "fetch", "CORS", "dev server"]

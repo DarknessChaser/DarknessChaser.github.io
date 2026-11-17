@@ -1,5 +1,6 @@
 ---
 title: "vue-cli5+vue3整合monaco-editor和monaco-yaml"
+description: "vue3接入monaco-editor和monaco-yaml的版本匹配踩坑"
 published: 2022-03-10
 category: "技术文档"
 tags: ["vue3", "vue-cli", "monaco-editor", "monaco-yaml"]

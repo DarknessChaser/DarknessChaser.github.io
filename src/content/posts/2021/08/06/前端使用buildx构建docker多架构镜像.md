@@ -1,5 +1,6 @@
 ---
 title: "前端使用buildx构建docker多架构镜像"
+description: "用docker buildx在一台机器上构建amd64和arm64多架构镜像"
 published: 2021-08-06
 category: "技术文档"
 tags: ["docker", "buildx", "arm"]

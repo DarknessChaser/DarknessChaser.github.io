@@ -1,5 +1,6 @@
 ---
 title: "（转载）maven怎么用"
+description: "Maven常用mvn命令与跳过测试等高级参数用法"
 published: 2018-04-14
 category: "技术文档"
 tags: ["maven", "myeclipse"]

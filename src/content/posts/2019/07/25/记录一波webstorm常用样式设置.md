@@ -1,5 +1,6 @@
 ---
 title: "记录一波webstorm常用样式设置"
+description: "webstorm主题字体、ESLint自动格式化和终端等常用设置"
 published: 2019-07-25
 category: "技术文档"
 tags: ["webstorm样式设置", "科学使用"]

@@ -1,5 +1,6 @@
 ---
 title: "nextTick执行顺序小探"
+description: "nextTick与updated钩子的执行顺序取决于注册时机"
 published: 2021-01-20
 category: "技术文档"
 tags: ["vue", "nextTick"]

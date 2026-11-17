@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的 Mac 提效软件"
+description: "Sourcetree、uTools、Kap 等常用 Mac 提效工具推荐"
 published: 2025-08-27
 category: "技术文档"
 tags: ["Mac", "工具", "提效"]

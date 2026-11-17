@@ -1,5 +1,6 @@
 ---
 title: "如何基于webpack配置可以使用tsx的vue2.7项目"
+description: "在 vue2.7 项目里用 webpack 配置 tsx 的具体步骤"
 published: 2024-01-29
 category: "技术文档"
 tags: ["vue2.7", "vue tsx", "webpack"]

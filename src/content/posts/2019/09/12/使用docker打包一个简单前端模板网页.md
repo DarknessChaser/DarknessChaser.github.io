@@ -1,5 +1,6 @@
 ---
 title: "使用docker打包一个简单前端模板网页"
+description: "用docker多阶段构建把前端静态页打包成空镜像或nginx镜像"
 published: 2019-09-12
 category: "技术文档"
 tags: ["docker", "npm", "打包", "静态页面"]

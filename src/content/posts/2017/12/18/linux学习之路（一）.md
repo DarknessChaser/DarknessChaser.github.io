@@ -1,5 +1,6 @@
 ---
 title: "Linux学习之路（一）"
+description: "Windows10安装自带Linux并记录ssh、进程、防火墙等常用命令"
 published: 2017-12-18
 category: "技术文档"
 tags: ["Linux", "iptables", "ssh"]

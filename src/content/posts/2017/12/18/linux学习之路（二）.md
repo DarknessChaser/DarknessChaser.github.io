@@ -1,5 +1,6 @@
 ---
 title: "Linux学习之路（二）"
+description: "CentOS安装teamviewer远程桌面的失败记录与替代方案"
 published: 2017-12-18
 category: "技术文档"
 tags: ["Linux", "teamviewer", "Linux远程桌面"]

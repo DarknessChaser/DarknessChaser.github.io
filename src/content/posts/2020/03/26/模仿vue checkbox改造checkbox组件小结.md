@@ -1,5 +1,6 @@
 ---
 title: "模仿vue checkbox改造checkbox组件小结"
+description: "模仿vue源码给内部checkbox组件加上数组绑定支持"
 published: 2020-03-26
 category: "技术文档"
 tags: ["vue", "checkbox"]

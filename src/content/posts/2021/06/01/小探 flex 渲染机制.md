@@ -1,5 +1,6 @@
 ---
 title: "小探 flex 渲染机制"
+description: "flex-basis与width、padding相互影响导致的对齐问题探究"
 published: 2021-06-01
 category: "技术文档"
 tags: ["flex", "flex-basis", "flex-basis 与 width"]

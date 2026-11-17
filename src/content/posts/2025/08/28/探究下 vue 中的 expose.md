@@ -1,5 +1,6 @@
 ---
 title: "探究下 vue 中的 expose"
+description: "vue2.7 与 vue3 中 expose 的实现差异及组件二次封装"
 published: 2025-08-28
 category: "技术文档"
 tags: ["vue expose", "vue defineExpose", "vue composition-api", "vue2.7", "vue3"]

@@ -1,5 +1,6 @@
 ---
 title: "npm link 简单使用方式总结"
+description: "用npm link在业务项目中本地调试未发版的公共组件依赖"
 published: 2021-05-19
 category: "技术文档"
 tags: ["npm", "npm link", "vue 组件本地开发"]

@@ -1,5 +1,6 @@
 ---
 title: "科学使用npm、yarn、node和nvm"
+description: "npm、yarn、nvm设置代理与切换国内源的配置方法"
 published: 2019-02-05
 category: "技术文档"
 tags: ["科学使用", "网络工程", "npm", "nvm", "代理"]

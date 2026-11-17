@@ -1,5 +1,6 @@
 ---
 title: "小探web worker与任务分片"
+description: "web worker生成任务配合requestIdleCallback空闲消费"
 published: 2021-07-28
 category: "技术文档"
 tags: ["web worker", "requestIdleCallback"]

@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的品字形布局main右侧内容和左侧滚动联动配置"
+description: "左右分栏页面右侧内容吸顶吸底、随左侧滚动的sticky实现"
 published: 2023-12-05
 category: "技术文档"
 tags: ["左右粘性布局"]

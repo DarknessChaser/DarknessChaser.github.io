@@ -1,5 +1,6 @@
 ---
 title: "cent6下yum傻瓜安装tomcat6"
+description: "yum安装后的启停命令、默认目录与8080端口防火墙放行"
 published: 2018-03-01
 category: "技术文档"
 tags: ["tomcat", "Linux"]

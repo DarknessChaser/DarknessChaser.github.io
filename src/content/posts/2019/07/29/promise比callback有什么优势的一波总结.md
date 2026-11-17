@@ -1,5 +1,6 @@
 ---
 title: "promise比callback有什么优势的一波总结"
+description: "从可读性、错误处理和Promise.all看promise的优势"
 published: 2019-07-29
 category: "技术文档"
 tags: ["promise比callback优势"]

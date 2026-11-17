@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的chrome开发小技巧"
+description: "Chrome开发者工具console、sources和network面板小技巧"
 published: 2021-06-01
 category: "技术文档"
 tags: ["chrome 开发者工具", "前端开发小技巧", "科学使用", "科学使用 chrome"]

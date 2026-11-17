@@ -1,5 +1,6 @@
 ---
 title: "写给自己看的前端开发神器Emmet使用手册"
+description: "Emmet生成HTML和CSS代码片段的常用缩写速查"
 published: 2019-01-07
 category: "技术文档"
 tags: ["前端开发", "Emmet使用手册", "Emmet"]

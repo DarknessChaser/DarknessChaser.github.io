@@ -1,5 +1,6 @@
 ---
 title: "科学使用GitHub"
+description: "git和GitHub desktop配置HTTP与socks5代理"
 published: 2018-07-25
 category: "技术文档"
 tags: ["科学使用", "网络工程", "GitHub", "代理"]

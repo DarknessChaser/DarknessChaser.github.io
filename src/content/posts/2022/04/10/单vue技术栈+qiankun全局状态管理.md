@@ -1,5 +1,6 @@
 ---
 title: "单vue技术栈+qiankun全局状态管理"
+description: "vue2+vuex与vue3+pinia在qiankun中的全局状态共享与响应式差异"
 published: 2022-04-10
 category: "技术文档"
 tags: ["vue3", "vue2", "pinia", "vuex", "qiankun", "全局状态管理"]

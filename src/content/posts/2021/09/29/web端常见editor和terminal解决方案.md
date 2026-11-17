@@ -1,5 +1,6 @@
 ---
 title: "web端常见editor和terminal解决方案"
+description: "Ace、monaco-editor、xterm等web编辑器与终端方案"
 published: 2021-09-29
 category: "技术文档"
 tags: ["ace-editor", "monaco-editor", "CodeMirror", "CodeMirror6", "novnc", "guacamole", "xterm"]
