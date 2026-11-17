@@ -2,7 +2,7 @@
 title: "Let's HTTPS！新手入门caddy+tomcat实现HTTPS建站"
 published: 2018-04-03
 category: "技术文档"
-tags: ["caddy", "tomcat", "https", "letsencrypt", "nginx"]
+tags: ["Caddy", "tomcat", "HTTPS", "letsencrypt", "nginx"]
 ---
 ## 前言
 记录一波新手配置HTTPS极简建站历程，HTTPS可以进行加密传输，更好的保证传输数据不被他人窃取。

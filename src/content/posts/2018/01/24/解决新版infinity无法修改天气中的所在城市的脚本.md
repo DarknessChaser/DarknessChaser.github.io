@@ -2,7 +2,7 @@
 title: "解决新版Infinity无法修改天气中的所在城市的脚本"
 published: 2018-01-24
 category: "技术文档"
-tags: ["JavaScript", "Infinity", "infinity"]
+tags: ["JavaScript", "Infinity"]
 ---
 ## 前言
 Infinity标签页是一款不错的chrome插件，我一直在用但是在最近（发文时间为2018/02/24）的某次更新后天气标签栏的所在城市不能改了，似乎是为了引流用户到新的pro版本做了限制。搞得有点不爽，我也不想用pro版本，所以就有了如下脚本。

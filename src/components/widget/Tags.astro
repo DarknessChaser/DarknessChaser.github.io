@@ -7,11 +7,20 @@ import { getTagUrl } from "../../utils/url-utils";
 import ButtonTag from "../control/ButtonTag.astro";
 import WidgetLayout from "./WidgetLayout.astro";
 
-const tags = await getTagList();
+const allTags = await getTagList();
 
+// There are ~240 distinct tags across ~105 posts and most of them are used
+// exactly once, so the sidebar only surfaces the most used ones. Everything
+// else is still reachable through search and the tag badges on each post.
+const TAG_LIMIT = 20;
+const COLLAPSE_THRESHOLD = 10;
 const COLLAPSED_HEIGHT = "7.5rem";
 
-const isCollapsed = tags.length >= 20;
+const tags = allTags
+	.sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+	.slice(0, TAG_LIMIT);
+
+const isCollapsed = tags.length >= COLLAPSE_THRESHOLD;
 
 interface Props {
 	class?: string;
